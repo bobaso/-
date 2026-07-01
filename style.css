@@ -1,31 +1,64 @@
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
 body{
 
-    margin:0;
-    padding:10px;
     background:#2f7f43;
     font-family:sans-serif;
-    text-align:center;
-    color:white;
+    color:#fff;
+
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+
+    min-height:100vh;
+
+    padding:10px;
 
 }
 
 h1{
 
-    margin:5px;
+    margin:10px 0;
+
+    font-size:30px;
+
+}
+
+#score{
+
+    font-size:22px;
+
+    margin-bottom:10px;
+
+}
+
+#message{
+
+    margin-bottom:15px;
+
+    font-size:20px;
+
+    min-height:30px;
 
 }
 
 #board{
 
     width:95vw;
+
     max-width:480px;
 
-    margin:auto;
-
     display:grid;
+
     grid-template-columns:repeat(8,1fr);
 
-    border:4px solid #333;
+    border:4px solid #222;
+
+    background:#198c39;
 
 }
 
@@ -33,9 +66,7 @@ h1{
 
     aspect-ratio:1;
 
-    border:1px solid #0b4f25;
-
-    background:#1f9b45;
+    border:1px solid #0d5a22;
 
     display:flex;
 
@@ -43,62 +74,64 @@ h1{
 
     align-items:center;
 
+    cursor:pointer;
+
+}
+
+.cell:active{
+
+    background:#2dbb55;
+
 }
 
 .black{
 
     width:80%;
+
     height:80%;
 
-    background:black;
+    background:#111;
 
     border-radius:50%;
+
+    box-shadow:0 3px 5px rgba(0,0,0,.5);
 
 }
 
 .white{
 
     width:80%;
+
     height:80%;
 
-    background:white;
+    background:#fff;
 
     border-radius:50%;
 
-}
-
-#message{
-
-    margin:15px;
-
-    font-size:18px;
+    box-shadow:0 3px 5px rgba(0,0,0,.5);
 
 }
 
-#score{
-
-    margin-bottom:10px;
-
-    font-size:20px;
-
-}
 /* 勝敗画面 */
 
 #resultOverlay{
 
     position:fixed;
 
-    top:0;
     left:0;
 
+    top:0;
+
     width:100%;
+
     height:100%;
 
-    background:rgba(0,0,0,.65);
+    background:rgba(0,0,0,.6);
 
     display:none;
 
     justify-content:center;
+
     align-items:center;
 
     z-index:999;
@@ -107,47 +140,55 @@ h1{
 
 #resultBox{
 
-    background:white;
-
-    color:#333;
-
     width:85%;
 
     max-width:320px;
 
-    padding:30px;
+    background:#fff;
 
-    border-radius:15px;
+    color:#333;
+
+    border-radius:20px;
+
+    padding:30px;
 
     text-align:center;
 
-    animation:popup .3s;
+    animation:popup .25s;
 
 }
 
 #resultText{
 
-    margin-bottom:25px;
-
     font-size:30px;
+
+    margin-bottom:25px;
 
 }
 
 #restartBtn{
 
+    background:#27ae60;
+
+    color:#fff;
+
     border:none;
-
-    background:#2fb34a;
-
-    color:white;
-
-    font-size:20px;
 
     padding:14px 30px;
 
-    border-radius:10px;
+    border-radius:12px;
+
+    font-size:20px;
 
     cursor:pointer;
+
+    transition:.2s;
+
+}
+
+#restartBtn:hover{
+
+    transform:scale(1.05);
 
 }
 
@@ -159,20 +200,50 @@ h1{
 
 @keyframes popup{
 
-from{
+    from{
 
-transform:scale(.7);
+        transform:scale(.6);
 
-opacity:0;
+        opacity:0;
+
+    }
+
+    to{
+
+        transform:scale(1);
+
+        opacity:1;
+
+    }
 
 }
 
-to{
+/* スマホ対応 */
 
-transform:scale(1);
+@media (max-width:480px){
 
-opacity:1;
+    h1{
 
-}
+        font-size:26px;
+
+    }
+
+    #score{
+
+        font-size:18px;
+
+    }
+
+    #message{
+
+        font-size:18px;
+
+    }
+
+    #resultText{
+
+        font-size:26px;
+
+    }
 
 }
