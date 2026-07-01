@@ -235,43 +235,6 @@ turn=BLACK;
 document.getElementById("message").textContent="あなたの番";
 
 }
-function cpuMove(){
-
-    let list=[];
-
-    for(let y=0;y<8;y++){
-
-        for(let x=0;x<8;x++){
-
-            if(canPut(x,y,WHITE)){
-
-                list.push([x,y]);
-
-            }
-
-        }
-
-    }
-
-    if(list.length==0){
-
-        turn=BLACK;
-
-        document.getElementById("message").textContent="CPUはパス";
-
-        return;
-
-    }
-
-    const p=list[Math.floor(Math.random()*list.length)];
-
-    flip(p[0],p[1],WHITE);
-
-    draw();
-
-    turn=BLACK;
-
-    document.getElementById("message").textContent="あなたの番";
 
     let playerCan=false;
     let cpuCan=false;
