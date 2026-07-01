@@ -150,6 +150,12 @@ h1{
 
     border-radius:50%;
 
+    transition:transform .3s ease;
+
+    transform-style:preserve-3d;
+
+    backface-visibility:hidden;
+
 }
 
 .black{
@@ -163,6 +169,11 @@ h1{
     background:#fff;
 
     border:1px solid #999;
+
+}
+.stone.flip{
+
+    transform:rotateY(180deg);
 
 }
 
