@@ -198,12 +198,6 @@ function placeStone(x, y, player){
 
     flipStones(x, y, player);
 
-    currentPlayer = player === 1 ? 2 : 1;
-
-    updateBoard();
-
-    checkTurn();
-
 }
 
 // 石をひっくり返す
@@ -231,24 +225,19 @@ function flipStones(x, y, player){
 
             }else if(board[ny][nx] === player){
 
-                stones.forEach(([fx, fy])=>{
+               stones.forEach(([fx, fy])=>{
 
-                    board[fy][fx] = player;
-                    const index = fy * SIZE + fx;
-const cell = document.querySelectorAll(".cell")[index];
+    const index = fy * SIZE + fx;
+    const cell = document.querySelectorAll(".cell")[index];
+    const stone = cell.querySelector(".stone");
 
-const stone = cell.querySelector(".stone");
+    if(stone){
+        stone.classList.add("flip");
+    }
 
-if(stone){
-    stone.classList.add("flip");
-}
-                    setTimeout(() => {
     board[fy][fx] = player;
-    updateBoard();
-},150);
 
-                });
-
+});
                 break;
 
             }else{
@@ -263,7 +252,15 @@ if(stone){
         }
 
     }
+setTimeout(() => {
 
+    currentPlayer = player === 1 ? 2 : 1;
+
+    updateBoard();
+
+    checkTurn();
+
+},300);
 }
 
 // CPU（弱い・ランダム）
