@@ -388,15 +388,15 @@ function finishGame(){
 
 if(black > white){
 
-    resultMessage.textContent = "🎉 あなたの勝ち！";
+    resultMessage.textContent = "あなたの勝ち！";
 
 }else if(white > black){
 
-    resultMessage.textContent = "😢 あなたの負け！";
+    resultMessage.textContent = "あなたの負け！";
 
 }else{
 
-    resultMessage.textContent = "😊 引き分け！";
+    resultMessage.textContent = "引き分け！";
 
 }
 
