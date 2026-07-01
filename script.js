@@ -122,7 +122,7 @@ function updateBoard(){
     if(currentPlayer === 1){
         messageElement.textContent = "あなたの番です";
     }else{
-        messageElement.textContent = "うーちゃんが考えています…";
+        messageElement.textContent = "あいてが考えています…";
     }
 
 }
@@ -328,7 +328,7 @@ function checkTurn(){
         if(!canWhite){
 
             messageElement.textContent =
-                "うーちゃんはパスです";
+                "あいてはパスです";
 
             currentPlayer = 1;
 
