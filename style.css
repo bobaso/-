@@ -1,249 +1,157 @@
+/* 全体 */
+
 *{
-    box-sizing:border-box;
     margin:0;
     padding:0;
+    box-sizing:border-box;
+    font-family:"Yu Gothic","Hiragino Sans",sans-serif;
 }
 
 body{
-
-    background:#2f7f43;
-    font-family:sans-serif;
-    color:#fff;
-
+    background:#b7ecb2;
     display:flex;
-    flex-direction:column;
+    justify-content:center;
     align-items:center;
-
     min-height:100vh;
-
-    padding:10px;
-
+    padding:15px;
 }
+
+.container{
+    width:100%;
+    max-width:480px;
+    text-align:center;
+}
+
+/* タイトル */
 
 h1{
-
-    margin:10px 0;
-
     font-size:30px;
-
+    margin-bottom:15px;
+    color:#333;
 }
 
-#score{
+/* 石数表示 */
 
-    font-size:22px;
-
-    margin-bottom:10px;
-
+.scoreBoard{
+    display:flex;
+    justify-content:space-between;
+    margin-bottom:12px;
+    font-size:20px;
+    font-weight:bold;
 }
+
+/* メッセージ */
 
 #message{
-
     margin-bottom:15px;
-
     font-size:20px;
-
-    min-height:30px;
-
+    font-weight:bold;
+    color:#222;
+    min-height:28px;
 }
+
+/* オセロ盤 */
 
 #board{
+    width:min(92vw,460px);
+    height:min(92vw,460px);
 
-    width:95vw;
+    margin:auto;
 
-    max-width:480px;
+    background:#1f9d45;
+
+    border:5px solid #0d5b24;
 
     display:grid;
-
     grid-template-columns:repeat(8,1fr);
-
-    border:4px solid #222;
-
-    background:#198c39;
-
+    grid-template-rows:repeat(8,1fr);
 }
+
+/* マス */
 
 .cell{
 
-    aspect-ratio:1;
+    border:1px solid #0f6128;
 
-    border:1px solid #0d5a22;
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
+    position:relative;
 
     cursor:pointer;
-
 }
 
-.cell:active{
+/* 石 */
 
-    background:#2dbb55;
+.stone{
 
+    width:80%;
+
+    height:80%;
+
+    border-radius:50%;
+
+    position:absolute;
+
+    top:10%;
+
+    left:10%;
 }
 
 .black{
-
-    width:80%;
-
-    height:80%;
-
     background:#111;
-
-    border-radius:50%;
-
-    box-shadow:0 3px 5px rgba(0,0,0,.5);
-
 }
 
 .white{
-
-    width:80%;
-
-    height:80%;
-
     background:#fff;
-
-    border-radius:50%;
-
-    box-shadow:0 3px 5px rgba(0,0,0,.5);
-
+    border:1px solid #999;
 }
 
-/* 勝敗画面 */
+/* ボタン */
 
-#resultOverlay{
+button{
 
-    position:fixed;
+    margin-top:20px;
 
-    left:0;
-
-    top:0;
-
-    width:100%;
-
-    height:100%;
-
-    background:rgba(0,0,0,.6);
-
-    display:none;
-
-    justify-content:center;
-
-    align-items:center;
-
-    z-index:999;
-
-}
-
-#resultBox{
-
-    width:85%;
-
-    max-width:320px;
-
-    background:#fff;
-
-    color:#333;
-
-    border-radius:20px;
-
-    padding:30px;
-
-    text-align:center;
-
-    animation:popup .25s;
-
-}
-
-#resultText{
-
-    font-size:30px;
-
-    margin-bottom:25px;
-
-}
-
-#restartBtn{
-
-    background:#27ae60;
-
-    color:#fff;
+    padding:12px 30px;
 
     border:none;
 
-    padding:14px 30px;
+    border-radius:10px;
 
-    border-radius:12px;
+    background:#ff8f00;
 
-    font-size:20px;
+    color:#fff;
+
+    font-size:18px;
+
+    font-weight:bold;
 
     cursor:pointer;
 
     transition:.2s;
-
 }
 
-#restartBtn:hover{
-
+button:hover{
     transform:scale(1.05);
-
-}
-
-#restartBtn:active{
-
-    transform:scale(.95);
-
-}
-
-@keyframes popup{
-
-    from{
-
-        transform:scale(.6);
-
-        opacity:0;
-
-    }
-
-    to{
-
-        transform:scale(1);
-
-        opacity:1;
-
-    }
-
 }
 
 /* スマホ対応 */
 
-@media (max-width:480px){
+@media (max-width:600px){
 
     h1{
-
-        font-size:26px;
-
+        font-size:24px;
     }
 
-    #score{
-
-        font-size:18px;
-
+    .scoreBoard{
+        font-size:17px;
     }
 
     #message{
-
         font-size:18px;
-
     }
 
-    #resultText{
-
-        font-size:26px;
-
+    button{
+        width:100%;
+        font-size:18px;
     }
 
 }
