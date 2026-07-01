@@ -1,3 +1,7 @@
+const overlay=document.getElementById("resultOverlay");
+const resultText=document.getElementById("resultText");
+
+document.getElementById("restartBtn").onclick=restartGame;
 const board=[];
 const SIZE=8;
 
@@ -232,3 +236,41 @@ document.getElementById("message").textContent="あなたの番";
 
 }
 init();
+function gameEnd(){
+
+    let black=0;
+    let white=0;
+
+    for(let y=0;y<8;y++){
+
+        for(let x=0;x<8;x++){
+
+            if(board[y][x]==BLACK) black++;
+
+            if(board[y][x]==WHITE) white++;
+
+        }
+
+    }
+
+    if(black>white){
+
+        resultText.textContent="🎉 あなたの勝ち！";
+
+    }
+
+    else if(white>black){
+
+        resultText.textContent="😢 あなたの負け";
+
+    }
+
+    else{
+
+        resultText.textContent="🤝 引き分け";
+
+    }
+
+    overlay.style.display="flex";
+
+}
