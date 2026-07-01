@@ -274,3 +274,12 @@ function gameEnd(){
     overlay.style.display="flex";
 
 }
+function restartGame(){
+
+    overlay.style.display="none";
+
+    turn=BLACK;
+
+    init();
+
+}
