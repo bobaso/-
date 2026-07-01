@@ -326,3 +326,18 @@ button:hover{
     }
 
 }
+.stone{
+    width:80%;
+    height:80%;
+    border-radius:50%;
+    position:absolute;
+    top:10%;
+    left:10%;
+
+    transition:transform .3s ease;
+    transform-style:preserve-3d;
+}
+
+.stone.flip{
+    transform:rotateY(180deg);
+}
