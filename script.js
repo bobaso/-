@@ -386,19 +386,21 @@ function finishGame(){
     blackCountElement.textContent = black;
     whiteCountElement.textContent = white;
 
-    if(black > white){
+if(black > white){
 
-        messageElement.textContent = "🎉 あなたの勝ち！";
+    resultMessage.textContent = "🎉 あなたの勝ち！";
 
-    }else if(white > black){
+}else if(white > black){
 
-        messageElement.textContent = "😢 あなたの負け！";
+    resultMessage.textContent = "😢 あなたの負け！";
 
-    }else{
+}else{
 
-        messageElement.textContent = "😊 引き分け！";
+    resultMessage.textContent = "😊 引き分け！";
 
-    }
+}
+
+messageElement.textContent = "";
     gameOverPanel.classList.add("show");
 
 }
