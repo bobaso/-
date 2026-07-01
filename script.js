@@ -1,307 +1,412 @@
-const overlay=document.getElementById("resultOverlay");
-const resultText=document.getElementById("resultText");
+// =========================
+// うーちゃんとオセロ！
+// Part1
+// =========================
 
-document.getElementById("restartBtn").onclick=restartGame;
-const board=[];
-const SIZE=8;
+// 定数
+const SIZE = 8;
 
-const EMPTY=0;
-const BLACK=1;
-const WHITE=2;
+// 盤面
+let board = [];
 
-const boardDiv=document.getElementById("board");
+// 現在の手番
+// 1 = 黒（あなた）
+// 2 = 白（CPU）
+let currentPlayer = 1;
 
-let turn=BLACK;
+// HTML取得
+const boardElement = document.getElementById("board");
+const messageElement = document.getElementById("message");
+const blackCountElement = document.getElementById("blackCount");
+const whiteCountElement = document.getElementById("whiteCount");
+const restartBtn = document.getElementById("restartBtn");
 
-const dirs=[
-[-1,-1],[-1,0],[-1,1],
-[0,-1],[0,1],
-[1,-1],[1,0],[1,1]
+// 8方向
+const directions = [
+    [-1,-1],[-1,0],[-1,1],
+    [0,-1],        [0,1],
+    [1,-1],[1,0],[1,1]
 ];
 
-function init(){
+// 初期化
+function initGame(){
 
-for(let y=0;y<SIZE;y++){
+    board = [];
 
-board[y]=[];
+    for(let y=0; y<SIZE; y++){
 
-for(let x=0;x<SIZE;x++){
+        board[y] = [];
 
-board[y][x]=EMPTY;
+        for(let x=0; x<SIZE; x++){
+
+            board[y][x] = 0;
+
+        }
+    }
+
+    // 初期配置
+    board[3][3] = 2;
+    board[3][4] = 1;
+    board[4][3] = 1;
+    board[4][4] = 2;
+
+    currentPlayer = 1;
+
+    createBoard();
+    updateBoard();
+}
+
+// 盤面生成
+function createBoard(){
+
+    boardElement.innerHTML = "";
+
+    for(let y=0; y<SIZE; y++){
+
+        for(let x=0; x<SIZE; x++){
+
+            const cell = document.createElement("div");
+
+            cell.className = "cell";
+
+            cell.dataset.x = x;
+            cell.dataset.y = y;
+
+            cell.addEventListener("click", onCellClick);
+
+            boardElement.appendChild(cell);
+
+        }
+
+    }
 
 }
 
-}
+// 初期化開始
+initGame();
 
-board[3][3]=WHITE;
-board[3][4]=BLACK;
-board[4][3]=BLACK;
-board[4][4]=WHITE;
+// 盤面更新
+function updateBoard(){
 
-draw();
+    const cells = document.querySelectorAll(".cell");
 
-}
+    let black = 0;
+    let white = 0;
 
-function draw(){
+    cells.forEach(cell=>{
 
-boardDiv.innerHTML="";
+        const x = Number(cell.dataset.x);
+        const y = Number(cell.dataset.y);
 
-let black=0;
-let white=0;
+        cell.innerHTML = "";
 
-for(let y=0;y<SIZE;y++){
+        if(board[y][x] === 1){
 
-for(let x=0;x<SIZE;x++){
+            const stone = document.createElement("div");
+            stone.className = "stone black";
+            cell.appendChild(stone);
+            black++;
 
-const cell=document.createElement("div");
-cell.className="cell";
+        }else if(board[y][x] === 2){
 
-cell.onclick=()=>playerMove(x,y);
+            const stone = document.createElement("div");
+            stone.className = "stone white";
+            cell.appendChild(stone);
+            white++;
 
-if(board[y][x]==BLACK){
+        }
 
-const d=document.createElement("div");
-d.className="black";
-cell.appendChild(d);
-black++;
+    });
 
-}
+    blackCountElement.textContent = black;
+    whiteCountElement.textContent = white;
 
-if(board[y][x]==WHITE){
-
-const d=document.createElement("div");
-d.className="white";
-cell.appendChild(d);
-white++;
-
-}
-
-boardDiv.appendChild(cell);
+    if(currentPlayer === 1){
+        messageElement.textContent = "あなたの番です";
+    }else{
+        messageElement.textContent = "うーちゃんが考えています…";
+    }
 
 }
 
-}
+// マスをクリック
+function onCellClick(event){
 
-document.getElementById("black").textContent=black;
-document.getElementById("white").textContent=white;
+    if(currentPlayer !== 1) return;
 
-}
+    const x = Number(event.currentTarget.dataset.x);
+    const y = Number(event.currentTarget.dataset.y);
 
-function canPut(x,y,color){
+    if(!canPlace(x, y, 1)) return;
 
-if(board[y][x]!=EMPTY)return false;
-
-const enemy=color==BLACK?WHITE:BLACK;
-
-for(const d of dirs){
-
-let nx=x+d[0];
-let ny=y+d[1];
-
-let found=false;
-
-while(nx>=0&&ny>=0&&nx<8&&ny<8){
-
-if(board[ny][nx]==enemy){
-
-found=true;
+    placeStone(x, y, 1);
 
 }
 
-else if(board[ny][nx]==color){
+// 石を置けるか判定
+function canPlace(x, y, player){
 
-if(found)return true;
-break;
+    if(board[y][x] !== 0) return false;
 
-}
+    const enemy = player === 1 ? 2 : 1;
 
-else{
+    for(const [dx, dy] of directions){
 
-break;
+        let nx = x + dx;
+        let ny = y + dy;
 
-}
+        let foundEnemy = false;
 
-nx+=d[0];
-ny+=d[1];
+        while(
+            nx >= 0 &&
+            nx < SIZE &&
+            ny >= 0 &&
+            ny < SIZE
+        ){
 
-}
+            if(board[ny][nx] === enemy){
 
-}
+                foundEnemy = true;
 
-return false;
+            }else if(board[ny][nx] === player){
 
-}
+                if(foundEnemy){
+                    return true;
+                }
 
-function flip(x,y,color){
+                break;
 
-const enemy=color==BLACK?WHITE:BLACK;
+            }else{
 
-board[y][x]=color;
+                break;
 
-for(const d of dirs){
+            }
 
-let list=[];
+            nx += dx;
+            ny += dy;
 
-let nx=x+d[0];
-let ny=y+d[1];
+        }
 
-while(nx>=0&&ny>=0&&nx<8&&ny<8){
+    }
 
-if(board[ny][nx]==enemy){
-
-list.push([nx,ny]);
-
-}
-
-else if(board[ny][nx]==color){
-
-for(const p of list){
-
-board[p[1]][p[0]]=color;
+    return false;
 
 }
 
-break;
+// 石を置く
+function placeStone(x, y, player){
+
+    board[y][x] = player;
+
+    flipStones(x, y, player);
+
+    currentPlayer = player === 1 ? 2 : 1;
+
+    updateBoard();
+
+    checkTurn();
 
 }
 
-else{
+// 石をひっくり返す
+function flipStones(x, y, player){
 
-break;
+    const enemy = player === 1 ? 2 : 1;
+
+    for(const [dx, dy] of directions){
+
+        let nx = x + dx;
+        let ny = y + dy;
+
+        const stones = [];
+
+        while(
+            nx >= 0 &&
+            nx < SIZE &&
+            ny >= 0 &&
+            ny < SIZE
+        ){
+
+            if(board[ny][nx] === enemy){
+
+                stones.push([nx, ny]);
+
+            }else if(board[ny][nx] === player){
+
+                stones.forEach(([fx, fy])=>{
+
+                    board[fy][fx] = player;
+
+                });
+
+                break;
+
+            }else{
+
+                break;
+
+            }
+
+            nx += dx;
+            ny += dy;
+
+        }
+
+    }
 
 }
 
-nx+=d[0];
-ny+=d[1];
-
-}
-
-}
-
-}
-
-function playerMove(x,y){
-
-if(turn!=BLACK)return;
-
-if(!canPut(x,y,BLACK))return;
-
-flip(x,y,BLACK);
-
-draw();
-
-turn=WHITE;
-
-setTimeout(cpuMove,500);
-
-}
-
+// CPU（弱い・ランダム）
 function cpuMove(){
 
-let list=[];
+    const moves = [];
 
-for(let y=0;y<8;y++){
+    for(let y=0; y<SIZE; y++){
 
-for(let x=0;x<8;x++){
+        for(let x=0; x<SIZE; x++){
 
-if(canPut(x,y,WHITE)){
+            if(canPlace(x, y, 2)){
 
-list.push([x,y]);
+                moves.push({x, y});
 
-}
-
-}
-
-}
-
-if(list.length==0){
-
-turn=BLACK;
-
-document.getElementById("message").textContent="CPUはパス";
-
-return;
-
-}
-
-const p=list[Math.floor(Math.random()*list.length)];
-
-flip(p[0],p[1],WHITE);
-
-draw();
-
-turn=BLACK;
-
-document.getElementById("message").textContent="あなたの番";
-
-}
-
-    let playerCan=false;
-    let cpuCan=false;
-
-    for(let y=0;y<8;y++){
-
-        for(let x=0;x<8;x++){
-
-            if(canPut(x,y,BLACK)) playerCan=true;
-
-            if(canPut(x,y,WHITE)) cpuCan=true;
+            }
 
         }
 
     }
 
-    if(!playerCan && !cpuCan){
+    if(moves.length === 0){
 
-        gameEnd();
+        checkTurn();
+        return;
 
     }
+
+    const move =
+        moves[Math.floor(Math.random() * moves.length)];
+
+    setTimeout(()=>{
+
+        placeStone(move.x, move.y, 2);
+
+    }, 500);
+
 }
-init();
-function gameEnd(){
 
-    let black=0;
-    let white=0;
+// パス処理・手番管理
+function checkTurn(){
 
-    for(let y=0;y<8;y++){
+    const canBlack = hasMove(1);
+    const canWhite = hasMove(2);
 
-        for(let x=0;x<8;x++){
+    // 両者置けない → 終局
+    if(!canBlack && !canWhite){
 
-            if(board[y][x]==BLACK) black++;
+        finishGame();
+        return;
 
-            if(board[y][x]==WHITE) white++;
+    }
+
+    // プレイヤーの番
+    if(currentPlayer === 1){
+
+        if(!canBlack){
+
+            messageElement.textContent =
+                "あなたはパスです";
+
+            currentPlayer = 2;
+
+            setTimeout(cpuMove, 1000);
+
+            return;
+        }
+
+    }
+
+    // CPUの番
+    if(currentPlayer === 2){
+
+        if(!canWhite){
+
+            messageElement.textContent =
+                "うーちゃんはパスです";
+
+            currentPlayer = 1;
+
+            updateBoard();
+
+            return;
+
+        }
+
+        cpuMove();
+
+    }
+
+}
+
+// 指定プレイヤーが置ける場所があるか
+function hasMove(player){
+
+    for(let y = 0; y < SIZE; y++){
+
+        for(let x = 0; x < SIZE; x++){
+
+            if(canPlace(x, y, player)){
+                return true;
+            }
 
         }
 
     }
 
-    if(black>white){
-
-        resultText.textContent="🎉 あなたの勝ち！";
-
-    }
-
-    else if(white>black){
-
-        resultText.textContent="😢 あなたの負け";
-
-    }
-
-    else{
-
-        resultText.textContent="🤝 引き分け";
-
-    }
-
-    overlay.style.display="flex";
+    return false;
 
 }
-function restartGame(){
 
-    overlay.style.display="none";
+// 勝敗判定
+function finishGame(){
 
-    turn=BLACK;
+    let black = 0;
+    let white = 0;
 
-    init();
+    for(let y = 0; y < SIZE; y++){
+
+        for(let x = 0; x < SIZE; x++){
+
+            if(board[y][x] === 1){
+                black++;
+            }else if(board[y][x] === 2){
+                white++;
+            }
+
+        }
+
+    }
+
+    blackCountElement.textContent = black;
+    whiteCountElement.textContent = white;
+
+    if(black > white){
+
+        messageElement.textContent = "🎉 あなたの勝ち！";
+
+    }else if(white > black){
+
+        messageElement.textContent = "😢 あなたの負け！";
+
+    }else{
+
+        messageElement.textContent = "😊 引き分け！";
+
+    }
 
 }
+
+// 「もう一回遊ぶ」ボタン
+restartBtn.addEventListener("click", () => {
+
+    initGame();
+
+});
