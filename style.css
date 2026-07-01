@@ -155,3 +155,50 @@ button:hover{
     }
 
 }
+/* 盤面全体 */
+.boardWrapper{
+    position:relative;
+    width:min(92vw,460px);
+    margin:auto;
+}
+
+/* ゲーム終了画面 */
+#gameOverPanel{
+
+    position:absolute;
+    inset:0;
+
+    display:none;
+
+    justify-content:center;
+    align-items:center;
+
+    background:rgba(0,0,0,.45);
+
+    border-radius:6px;
+}
+
+/* 表示 */
+#gameOverPanel.show{
+    display:flex;
+}
+
+/* ボタン */
+#restartBtn{
+
+    background:#ff9800;
+
+    color:#fff;
+
+    font-size:22px;
+
+    font-weight:bold;
+
+    padding:15px 35px;
+
+    border:none;
+
+    border-radius:15px;
+
+    cursor:pointer;
+}
