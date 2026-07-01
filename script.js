@@ -242,6 +242,10 @@ const stone = cell.querySelector(".stone");
 if(stone){
     stone.classList.add("flip");
 }
+                    setTimeout(() => {
+    board[fy][fx] = player;
+    updateBoard();
+},150);
 
                 });
 
