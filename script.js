@@ -399,8 +399,6 @@ function finishGame(){
 
 }
 
-}
-
 // 「もう一回遊ぶ」ボタン
 restartBtn.addEventListener("click", () => {
     initGame();
