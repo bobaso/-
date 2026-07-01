@@ -17,6 +17,7 @@ const blackCountElement = document.getElementById("blackCount");
 const whiteCountElement = document.getElementById("whiteCount");
 const restartBtn = document.getElementById("restartBtn");
 const gameOverPanel = document.getElementById("gameOverPanel");
+const resultMessage = document.getElementById("resultMessage");
 
 // 8方向
 const directions = [
@@ -27,7 +28,10 @@ const directions = [
 
 // 初期化
 function initGame(){
-gameOverPanel.classList.remove("show");
+
+    gameOverPanel.classList.remove("show");
+    resultMessage.textContent = "";
+
     board = [];
 
     for(let y=0; y<SIZE; y++){
