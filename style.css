@@ -8,17 +8,28 @@
 }
 
 body{
+    margin:0;
     background:#b7ecb2;
+
     display:flex;
     justify-content:center;
     align-items:center;
-    min-height:100vh;
-    padding:15px;
-}
 
+    height:100dvh;
+    overflow:hidden;
+
+    padding:10px;
+}
 .container{
     width:100%;
     max-width:480px;
+
+    height:100%;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+
     text-align:center;
 }
 
