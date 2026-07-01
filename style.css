@@ -1,4 +1,6 @@
-/* 全体 */
+/*=========================
+  リセット
+=========================*/
 
 *{
     margin:0;
@@ -7,234 +9,171 @@
     font-family:"Yu Gothic","Hiragino Sans",sans-serif;
 }
 
+/*=========================
+  全体
+=========================*/
+
 body{
-    margin:0;
+
     background:#b7ecb2;
 
     display:flex;
     justify-content:center;
     align-items:center;
 
+    width:100%;
     height:100dvh;
+
     overflow:hidden;
 
     padding:10px;
+
 }
+
 .container{
+
     width:100%;
     max-width:480px;
 
-    height:100%;
-
     display:flex;
     flex-direction:column;
+    align-items:center;
     justify-content:center;
 
-    text-align:center;
 }
 
-/* タイトル */
+/*=========================
+  タイトル
+=========================*/
 
 h1{
-    font-size:30px;
-    margin-bottom:15px;
+
+    font-size:42px;
+
     color:#333;
+
+    margin-bottom:15px;
+
 }
 
-/* 石数表示 */
+/*=========================
+  スコア
+=========================*/
 
 .scoreBoard{
+
+    width:100%;
+
     display:flex;
     justify-content:space-between;
-    margin-bottom:12px;
+
     font-size:20px;
     font-weight:bold;
+
+    margin-bottom:15px;
+
 }
 
-/* メッセージ */
+/*=========================
+  メッセージ
+=========================*/
 
 #message{
-    margin-bottom:15px;
+
+    min-height:30px;
+
     font-size:20px;
     font-weight:bold;
+
     color:#222;
-    min-height:28px;
-}
 
-/* オセロ盤 */
-
-#board{
-    width:min(88vw,68dvh,460px);
-    aspect-ratio:1;
-
-    margin:auto;
-
-    background:#1f9d45;
-    border:5px solid #0d5b24;
-
-    display:grid;
-    grid-template-columns:repeat(8,1fr);
-    grid-template-rows:repeat(8,1fr);
-}
-    margin:auto;
-
-    background:#1f9d45;
-
-    border:5px solid #0d5b24;
-
-    display:grid;
-    grid-template-columns:repeat(8,1fr);
-    grid-template-rows:repeat(8,1fr);
-}
-
-/* マス */
-
-.cell{
-
-    border:1px solid #0f6128;
-
-    position:relative;
-
-    cursor:pointer;
-}
-
-/* 石 */
-
-.stone{
-
-    width:80%;
-
-    height:80%;
-
-    border-radius:50%;
-
-    position:absolute;
-
-    top:10%;
-
-    left:10%;
-}
-
-.black{
-    background:#111;
-}
-
-.white{
-    background:#fff;
-    border:1px solid #999;
-}
-
-/* ボタン */
-
-button{
-
-    margin-top:20px;
-
-    padding:12px 30px;
-
-    border:none;
-
-    border-radius:10px;
-
-    background:#ff8f00;
-
-    color:#fff;
-
-    font-size:18px;
-
-    font-weight:bold;
-
-    cursor:pointer;
-
-    transition:.2s;
-}
-
-button:hover{
-    transform:scale(1.05);
-}
-
-/* スマホ対応 */
-
-@media (max-width:600px){
-
-    h1{
-        font-size:24px;
-    }
-
-    .scoreBoard{
-        font-size:17px;
-    }
-
-    #message{
-        font-size:18px;
-    }
-
-    button{
-        width:100%;
-        font-size:18px;
-    }
+    margin-bottom:15px;
 
 }
-/* 盤面全体 */
-.boardWrapper{
-    position:relative;
-    width:min(92vw,460px);
-    margin:auto;
-}
 
-/* ゲーム終了画面 */
-#gameOverPanel{
-
-    position:absolute;
-    inset:0;
-
-    display:none;
-
-    justify-content:center;
-    align-items:center;
-
-    background:rgba(0,0,0,.45);
-
-    border-radius:6px;
-}
-
-/* 表示 */
-#gameOverPanel.show{
-    display:flex;
-}
-
-/* ボタン */
-#restartBtn{
-
-    background:#ff9800;
-
-    color:#fff;
-
-    font-size:22px;
-
-    font-weight:bold;
-
-    padding:15px 35px;
-
-    border:none;
-
-    border-radius:15px;
-
-    cursor:pointer;
-}
 /*=========================
-  ゲーム終了ポップアップ
+  盤面
 =========================*/
 
 .boardWrapper{
+
     position:relative;
-    width:min(92vw,460px);
-    margin:auto;
+
+    width:min(90vw,70dvh,460px);
+
 }
+
+#board{
+
+    width:100%;
+
+    aspect-ratio:1;
+
+    background:#22a03d;
+
+    border:5px solid #0c5f24;
+
+    display:grid;
+
+    grid-template-columns:repeat(8,1fr);
+    grid-template-rows:repeat(8,1fr);
+
+}
+
+/*=========================
+  マス
+=========================*/
+
+.cell{
+
+    border:1px solid #0e6829;
+
+    position:relative;
+
+    cursor:pointer;
+
+}
+
+/*=========================
+  石
+=========================*/
+
+.stone{
+
+    position:absolute;
+
+    width:80%;
+    height:80%;
+
+    top:10%;
+    left:10%;
+
+    border-radius:50%;
+
+}
+
+.black{
+
+    background:#111;
+
+}
+
+.white{
+
+    background:#fff;
+
+    border:1px solid #999;
+
+}
+
+/*=========================
+  ゲーム終了
+=========================*/
 
 #gameOverPanel{
 
     position:absolute;
+
     inset:0;
 
     display:none;
@@ -244,35 +183,30 @@ button:hover{
 
     background:rgba(0,0,0,.5);
 
-    border-radius:6px;
-
 }
 
 #gameOverPanel.show{
-    display:flex;
-}
 
-/* 白いウィンドウ */
+    display:flex;
+
+}
 
 .gameOverBox{
 
-    background:#fff;
-
     width:85%;
-
     max-width:300px;
 
-    padding:30px 20px;
+    background:#fff;
 
     border-radius:20px;
+
+    padding:30px 20px;
 
     text-align:center;
 
     box-shadow:0 10px 25px rgba(0,0,0,.35);
 
 }
-
-/* 勝敗メッセージ */
 
 #resultMessage{
 
@@ -284,19 +218,15 @@ button:hover{
 
 }
 
-/* ボタン */
+/*=========================
+  ボタン
+=========================*/
 
-#restartBtn{
+button{
 
     width:100%;
 
-    margin:0;
-
     padding:15px;
-
-    font-size:20px;
-
-    font-weight:bold;
 
     border:none;
 
@@ -306,6 +236,93 @@ button:hover{
 
     color:#fff;
 
+    font-size:20px;
+    font-weight:bold;
+
     cursor:pointer;
+
+    transition:.2s;
+
+}
+
+button:hover{
+
+    transform:scale(1.03);
+
+}
+
+/*=========================
+  スマホ
+=========================*/
+
+@media (max-width:600px){
+
+    h1{
+
+        font-size:32px;
+
+        margin-bottom:10px;
+
+    }
+
+    .scoreBoard{
+
+        font-size:17px;
+
+        margin-bottom:10px;
+
+    }
+
+    #message{
+
+        font-size:18px;
+
+        margin-bottom:10px;
+
+    }
+
+    #resultMessage{
+
+        font-size:24px;
+
+    }
+
+}
+
+/*=========================
+  高さが低い端末
+=========================*/
+
+@media (max-height:700px){
+
+    h1{
+
+        font-size:28px;
+
+        margin-bottom:8px;
+
+    }
+
+    .scoreBoard{
+
+        font-size:16px;
+
+        margin-bottom:8px;
+
+    }
+
+    #message{
+
+        font-size:16px;
+
+        margin-bottom:8px;
+
+    }
+
+    .boardWrapper{
+
+        width:min(88vw,60dvh,420px);
+
+    }
 
 }
