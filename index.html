@@ -1,51 +1,34 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>オセロゲーム</title>
+<title>うーちゃんとオセロ！</title>
 
 <link rel="stylesheet" href="style.css">
-
 </head>
 
 <body>
 
-<h1>オセロ</h1>
+<div class="container">
 
-<div id="score">
+    <h1>うーちゃんとオセロ！</h1>
 
-黒：<span id="black">2</span>
-
-　
-
-白：<span id="white">2</span>
-
-</div>
-
-<div id="message">
-
-あなたの番です
-
-</div>
-
-<div id="board"></div>
-
-<!-- 勝敗画面 -->
-
-<div id="resultOverlay">
-
-    <div id="resultBox">
-
-        <h2 id="resultText"></h2>
-
-        <button id="restartBtn">
-            もう一回遊ぶ
-        </button>
-
+    <div class="scoreBoard">
+        <div>⚫ あなた：<span id="blackCount">2</span></div>
+        <div>⚪ うーちゃん：<span id="whiteCount">2</span></div>
     </div>
+
+    <div id="message">
+        あなたの番です
+    </div>
+
+    <div id="board"></div>
+
+    <button id="restartBtn">
+        もう一回遊ぶ
+    </button>
 
 </div>
 
