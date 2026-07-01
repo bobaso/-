@@ -1,7 +1,3 @@
-// =========================
-// うーちゃんとオセロ！
-// Part1
-// =========================
 
 // 定数
 const SIZE = 8;
@@ -20,6 +16,7 @@ const messageElement = document.getElementById("message");
 const blackCountElement = document.getElementById("blackCount");
 const whiteCountElement = document.getElementById("whiteCount");
 const restartBtn = document.getElementById("restartBtn");
+const gameOverPanel = document.getElementById("gameOverPanel");
 
 // 8方向
 const directions = [
@@ -30,7 +27,7 @@ const directions = [
 
 // 初期化
 function initGame(){
-
+gameOverPanel.classList.remove("show");
     board = [];
 
     for(let y=0; y<SIZE; y++){
@@ -398,6 +395,9 @@ function finishGame(){
         messageElement.textContent = "😊 引き分け！";
 
     }
+    gameOverPanel.classList.add("show");
+
+}
 
 }
 
