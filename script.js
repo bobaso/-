@@ -234,6 +234,14 @@ function flipStones(x, y, player){
                 stones.forEach(([fx, fy])=>{
 
                     board[fy][fx] = player;
+                    const index = fy * SIZE + fx;
+const cell = document.querySelectorAll(".cell")[index];
+
+const stone = cell.querySelector(".stone");
+
+if(stone){
+    stone.classList.add("flip");
+}
 
                 });
 
