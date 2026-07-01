@@ -82,9 +82,6 @@ function createBoard(){
 
 }
 
-// 初期化開始
-initGame();
-
 // 盤面更新
 function updateBoard(){
 
@@ -406,7 +403,8 @@ function finishGame(){
 
 // 「もう一回遊ぶ」ボタン
 restartBtn.addEventListener("click", () => {
-
     initGame();
-
 });
+
+// ページを開いたときにゲーム開始
+initGame();
