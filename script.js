@@ -421,3 +421,21 @@ restartBtn.addEventListener("click", () => {
 
 // ページを開いたときにゲーム開始
 initGame();
+
+const startScreen = document.getElementById("startScreen");
+const gameScreen = document.getElementById("gameScreen");
+
+document.getElementById("singleBtn").onclick = () => {
+
+    startScreen.style.display = "none";
+    gameScreen.style.display = "block";
+
+    initGame();
+
+};
+
+document.getElementById("multiBtn").onclick = () => {
+
+    alert("ふたり対戦モードは制作中です");
+
+};
