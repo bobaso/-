@@ -419,9 +419,11 @@ button:hover{
     z-index:1;
 }
 
-#singleImage,
+#singleImage{
+    top:46%;
+}
 #multiImage{
-
+top:67%;
     position:absolute;
 
     left:50%;
