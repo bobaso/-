@@ -432,19 +432,31 @@ const gameScreen = document.getElementById("gameScreen");
 const singleBtn = document.getElementById("singleBtn");
 const multiBtn = document.getElementById("multiBtn");
 
-singleBtn.addEventListener("click", () => {
+singleBtn.onclick = () => {
 
-    console.log("ひとりで遊ぶ");
+    singleBtn.classList.add("pressed");
 
-    startScreen.style.display = "none";
-    gameScreen.style.display = "block";
+    setTimeout(() => {
 
-    initGame();
+        startScreen.style.display = "none";
+        gameScreen.style.display = "block";
 
-});
+        initGame();
 
-multiBtn.addEventListener("click", () => {
+    },120);
 
-    alert("ふたり対戦モードは制作中です");
+};
 
-});
+multiBtn.onclick = () => {
+
+    multiBtn.classList.add("pressed");
+
+    setTimeout(() => {
+
+        alert("ふたり対戦モードは制作中です");
+
+        multiBtn.classList.remove("pressed");
+
+    },120);
+
+};
