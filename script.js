@@ -415,9 +415,15 @@ messageElement.textContent = "";
 }
 
 // 「もう一回遊ぶ」ボタン
-restartBtn.addEventListener("click", () => {
-    initGame();
-});
+if(restartBtn){
+
+    restartBtn.addEventListener("click", () => {
+
+        initGame();
+
+    });
+
+}
 
 // ページを開いたときにゲーム開始
 
