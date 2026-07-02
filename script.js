@@ -429,6 +429,10 @@ if(restartBtn){
 
 const startScreen = document.getElementById("startScreen");
 const gameScreen = document.getElementById("gameScreen");
+console.log(startScreen);
+console.log(gameScreen);
+console.log(document.getElementById("singleBtn"));
+console.log(document.getElementById("multiBtn"));
 
 document.getElementById("singleBtn").onclick = () => {
 
