@@ -10,66 +10,58 @@
 </head>
 
 <body>
-<!-- スタート画面 -->
-<div id="startScreen">
 
-    <img src="start.png" id="startImage" alt="スタート">
+    <!-- スタート画面 -->
+    <div id="startScreen">
 
-    <button id="singleBtn"></button>
+        <img src="start.png" id="startImage" alt="スタート">
 
-    <button id="multiBtn"></button>
-
-</div>
-
-<!-- ゲーム画面 -->
-<div id="gameScreen" style="display:none;">
-
-    <!-- 今までのゲーム画面 -->
-    <div class="container">
-
-        <!-- 今までのHTML -->
+        <button id="singleBtn"></button>
+        <button id="multiBtn"></button>
 
     </div>
 
-</div>
+    <!-- ゲーム画面 -->
+    <div id="gameScreen" style="display:none;">
 
-<script src="script.js"></script>
-    
-<div class="container">
+        <div class="container">
 
-    <h1>リバーシゲーム</h1>
+            <h1>リバーシゲーム</h1>
 
-    <div class="scoreBoard">
-        <div>⚫ あなた：<span id="blackCount">2</span></div>
-        <div>⚪ あいて：<span id="whiteCount">2</span></div>
-    </div>
+            <div class="scoreBoard">
+                <div>⚫ あなた：<span id="blackCount">2</span></div>
+                <div>⚪ あいて：<span id="whiteCount">2</span></div>
+            </div>
 
-    <div id="message">
-        あなたの番です
-    </div>
+            <div id="message">
+                あなたの番です
+            </div>
 
-<div class="boardWrapper">
+            <div class="boardWrapper">
 
-    <div id="board"></div>
+                <div id="board"></div>
 
-    <div id="gameOverPanel">
+                <div id="gameOverPanel">
 
-        <div class="gameOverBox">
+                    <div class="gameOverBox">
 
-            <h2 id="resultMessage"></h2>
+                        <h2 id="resultMessage"></h2>
 
-            <button id="restartBtn">
-                もう一回遊ぶ
-            </button>
+                        <button id="restartBtn">
+                            もう一回遊ぶ
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
 
         </div>
 
     </div>
 
-</div>
-</div>
-
-<script src="script.js"></script>
+    <script src="script.js"></script>
 
 </body>
 
