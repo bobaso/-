@@ -436,6 +436,8 @@ console.log(document.getElementById("multiBtn"));
 
 document.getElementById("singleBtn").onclick = () => {
 
+    console.log("ひとりであそぶ が押されました");
+
     startScreen.style.display = "none";
     gameScreen.style.display = "block";
 
