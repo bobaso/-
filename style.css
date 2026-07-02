@@ -414,6 +414,23 @@ button:hover{
     display:block;
 pointer-events:none;
 }
+#singleImage,
+#multiImage{
+
+    position:absolute;
+    left:50%;
+    transform:translateX(-50%);
+
+    width:70%;
+    max-width:360px;
+
+    pointer-events:none;
+
+    transition:
+        transform .12s ease,
+        filter .12s ease;
+
+}
 
 /* ひとり */
 
