@@ -369,7 +369,8 @@ button:hover{
 
 .stone.flip{
     transform:rotateY(180deg);
-  @keyframes pop {
+}
+@keyframes pop{
 
     0%{
         transform:scale(0);
@@ -493,8 +494,8 @@ button:hover{
 }
 
 /* 押された時 */
-#singleBtn.pressed,
-#multiBtn.pressed{
+#singleImage.pressed,
+#multiImage.pressed{
 
     transform:translateX(-50%) scale(.96);
 
