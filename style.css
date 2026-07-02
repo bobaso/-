@@ -1,7 +1,6 @@
 /*=========================
   リセット
 =========================*/
-
 *{
     margin:0;
     padding:0;
@@ -12,10 +11,9 @@
 /*=========================
   全体
 =========================*/
-
 body{
 
-    background:#b7ecb2;
+    background:#b7ec2b;
 
     display:flex;
     justify-content:center;
@@ -27,8 +25,120 @@ body{
     overflow:hidden;
 
     padding:10px;
-
 }
+
+/*=========================
+  スタート画面
+=========================*/
+
+#startScreen{
+
+    position:fixed;
+    inset:0;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    background:#b7ecb2;
+
+    z-index:9999;
+}
+
+#startContainer{
+
+    position:relative;
+
+    width:min(92vw,520px);
+}
+
+/* 背景画像 */
+
+#startImage{
+
+    width:100%;
+    display:block;
+}
+
+/* ボタン画像 */
+
+#singleImage,
+#multiImage{
+
+    position:absolute;
+
+    left:50%;
+
+    transform:translateX(-50%);
+
+    width:70%;
+
+    pointer-events:none;
+
+    transition:
+        transform .12s ease,
+        filter .12s ease;
+}
+
+/* ボタン画像位置 */
+
+#singleImage{
+
+    top:44%;
+}
+
+#multiImage{
+
+    top:63%;
+}
+
+/* 透明ボタン */
+
+#singleBtn,
+#multiBtn{
+
+    position:absolute;
+
+    left:50%;
+
+    transform:translateX(-50%);
+
+    width:70%;
+    height:90px;
+
+    background:transparent;
+    border:none;
+
+    cursor:pointer;
+
+    z-index:10;
+}
+
+/* ボタン位置 */
+
+#singleBtn{
+
+    top:44%;
+}
+
+#multiBtn{
+
+    top:63%;
+}
+
+/* 押した時 */
+
+#singleImage.pressed,
+#multiImage.pressed{
+
+    transform:translateX(-50%) scale(.96);
+
+    filter:brightness(.75);
+}
+
+/*=========================
+  ゲーム画面
+=========================*/
 
 .container{
 
@@ -38,8 +148,6 @@ body{
     display:flex;
     flex-direction:column;
     align-items:center;
-    justify-content:center;
-
 }
 
 /*=========================
@@ -53,7 +161,6 @@ h1{
     color:#333;
 
     margin-bottom:15px;
-
 }
 
 /*=========================
@@ -71,7 +178,6 @@ h1{
     font-weight:bold;
 
     margin-bottom:15px;
-
 }
 
 /*=========================
@@ -85,10 +191,7 @@ h1{
     font-size:20px;
     font-weight:bold;
 
-    color:#222;
-
     margin-bottom:15px;
-
 }
 
 /*=========================
@@ -100,7 +203,6 @@ h1{
     position:relative;
 
     width:min(90vw,70dvh,460px);
-
 }
 
 #board{
@@ -117,7 +219,6 @@ h1{
 
     grid-template-columns:repeat(8,1fr);
     grid-template-rows:repeat(8,1fr);
-
 }
 
 /*=========================
@@ -131,7 +232,6 @@ h1{
     position:relative;
 
     cursor:pointer;
-
 }
 
 /*=========================
@@ -150,18 +250,16 @@ h1{
 
     border-radius:50%;
 
-    transition:transform .3s ease;
-
     transform-style:preserve-3d;
 
-    backface-visibility:hidden;
+    transition:transform .3s ease;
 
+    animation:pop .25s ease;
 }
 
 .black{
 
     background:#111;
-
 }
 
 .white{
@@ -169,30 +267,29 @@ h1{
     background:#fff;
 
     border:1px solid #999;
-
 }
+
 .stone.flip{
+
     transform:rotateY(180deg);
 }
 
 @keyframes pop{
 
     0%{
+
         transform:scale(0);
     }
 
     70%{
+
         transform:scale(1.15);
     }
 
     100%{
+
         transform:scale(1);
     }
-
-}
-
-.stone{
-    animation:pop .25s ease;
 }
 
 /*=========================
@@ -211,13 +308,11 @@ h1{
     align-items:center;
 
     background:rgba(0,0,0,.5);
-
 }
 
 #gameOverPanel.show{
 
     display:flex;
-
 }
 
 .gameOverBox{
@@ -234,24 +329,20 @@ h1{
     text-align:center;
 
     box-shadow:0 10px 25px rgba(0,0,0,.35);
-
 }
 
 #resultMessage{
 
     font-size:28px;
 
-    color:#333;
-
     margin-bottom:20px;
-
 }
 
 /*=========================
-  ボタン
+  ゲーム内ボタン
 =========================*/
 
-button{
+#restartBtn{
 
     width:100%;
 
@@ -271,13 +362,11 @@ button{
     cursor:pointer;
 
     transition:.2s;
-
 }
 
-button:hover{
+#restartBtn:hover{
 
     transform:scale(1.03);
-
 }
 
 /*=========================
@@ -289,33 +378,28 @@ button:hover{
     h1{
 
         font-size:32px;
-
-        margin-bottom:10px;
-
     }
 
     .scoreBoard{
 
         font-size:17px;
-
-        margin-bottom:10px;
-
     }
 
     #message{
 
         font-size:18px;
-
-        margin-bottom:10px;
-
     }
 
     #resultMessage{
 
         font-size:24px;
-
     }
 
+    #singleBtn,
+    #multiBtn{
+
+        height:72px;
+    }
 }
 
 /*=========================
@@ -327,178 +411,20 @@ button:hover{
     h1{
 
         font-size:28px;
-
-        margin-bottom:8px;
-
     }
 
     .scoreBoard{
 
         font-size:16px;
-
-        margin-bottom:8px;
-
     }
 
     #message{
 
         font-size:16px;
-
-        margin-bottom:8px;
-
     }
 
     .boardWrapper{
 
         width:min(88vw,60dvh,420px);
-
     }
-
-}
-.stone{
-    width:80%;
-    height:80%;
-    border-radius:50%;
-    position:absolute;
-    top:10%;
-    left:10%;
-
-    transition:transform .3s ease;
-    transform-style:preserve-3d;
-}
-
-.stone.flip{
-    transform:rotateY(180deg);
-}
-@keyframes pop{
-
-    0%{
-        transform:scale(0);
-    }
-
-    70%{
-        transform:scale(1.15);
-    }
-
-    100%{
-        transform:scale(1);
-    }
-
-}
-
-.stone{
-
-    animation:pop .25s ease;
-
-}
-}
-/* スタート画面 */
-
-#startScreen{
-    position:fixed;
-    inset:0;
-
-    display:flex;
-    justify-content:center;
-    align-items:center;
-
-    background:#b7ecb2;
-
-    z-index:9999;
-}
-#startContainer{
-
-    position:relative;
-
-    width:min(92vw,520px);
-
-    aspect-ratio:520 / 760;
-}
-
-/* 画像 */
-
-#startImage{
-
-    width:100%;
-    display:block;
-}
-
-#singleImage,
-#multiImage{
-
-    position:absolute;
-
-    left:50%;
-
-    transform:translateX(-50%);
-
-    width:70%;
-
-    pointer-events:none;
-}
-#singleImage{
-
-    top:44%;
-}
-
-#multiImage{
-
-    top:63%;
-}
-/* ひとり */
-
-#singleBtn{
-
-    top:46%;
-
-}
-
-/* ふたり */
-
-#multiBtn{
-
-    top:67%;
-
-}
-
-/* スタートボタン */
-#singleBtn,
-#multiBtn{
-
-    position:absolute;
-
-    left:50%;
-
-    transform:translateX(-50%);
-
-    width:70%;
-    max-width:360px;
-    height:90px;
-
-    background:transparent;
-
-    border:none;
-
-    cursor:pointer;
-
-    z-index:3;
-}
-#singleBtn{
-
-    top:44%;
-}
-
-#multiBtn{
-
-    top:63%;
-}
-
-/* 押された時 */
-#singleImage.pressed,
-#multiImage.pressed{
-
-    transform:translateX(-50%) scale(.96);
-
-    filter:brightness(.75);
-
 }
