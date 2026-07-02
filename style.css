@@ -15,18 +15,12 @@ body{
 
     background:#b7ecb2;
 
-    display:flex;
-    justify-content:center;
-    align-items:center;
-
     width:100%;
     height:100dvh;
 
     overflow:hidden;
 
-    padding:10px;
 }
-
 /*=========================
   スタート画面
 =========================*/
