@@ -450,13 +450,13 @@ singleBtn.onclick = () => {
 };
 multiBtn.onclick = () => {
 
-    multiBtn.classList.add("pressed");
+    multiImage.classList.add("pressed");
 
     setTimeout(() => {
 
         alert("ふたり対戦モードは制作中です");
 
-        multiBtn.classList.remove("pressed");
+        multiImage.classList.remove("pressed");
 
     },120);
 
