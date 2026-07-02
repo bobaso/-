@@ -415,31 +415,6 @@ button:hover{
 pointer-events:none;
 }
 
-/* ボタンを置くため */
-
-#singleBtn,
-#multiBtn{
-
-    position:absolute;
-
-    left:50%;
-
-    transform:translateX(-50%);
-
-    width:70%;
-
-    max-width:360px;
-
-    height:90px;
-
-    background:transparent;
-
-    border:none;
-
-    cursor:pointer;
-
-}
-
 /* ひとり */
 
 #singleBtn{
