@@ -420,7 +420,6 @@ restartBtn.addEventListener("click", () => {
 });
 
 // ページを開いたときにゲーム開始
-initGame();
 
 const startScreen = document.getElementById("startScreen");
 const gameScreen = document.getElementById("gameScreen");
