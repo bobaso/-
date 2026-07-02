@@ -431,10 +431,12 @@ const gameScreen = document.getElementById("gameScreen");
 
 const singleBtn = document.getElementById("singleBtn");
 const multiBtn = document.getElementById("multiBtn");
+const singleImage = document.getElementById("singleImage");
+const multiImage = document.getElementById("multiImage");
 
 singleBtn.onclick = () => {
 
-    singleBtn.classList.add("pressed");
+    singleImage.classList.add("pressed");
 
     setTimeout(() => {
 
@@ -446,7 +448,6 @@ singleBtn.onclick = () => {
     },120);
 
 };
-
 multiBtn.onclick = () => {
 
     multiBtn.classList.add("pressed");
@@ -460,3 +461,14 @@ multiBtn.onclick = () => {
     },120);
 
 };
+<div id="startScreen">
+
+    <img src="start_bg.png" id="startImage" alt="スタート">
+
+    <img src="single.png" id="singleImage" alt="">
+    <img src="multi.png" id="multiImage" alt="">
+
+    <button id="singleBtn"></button>
+    <button id="multiBtn"></button>
+
+</div>
