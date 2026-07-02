@@ -428,3 +428,22 @@ h1{
         width:min(88vw,60dvh,420px);
     }
 }
+/*=========================
+  ゲーム画面
+=========================*/
+
+#gameScreen{
+
+    position:fixed;
+    inset:0;
+
+    display:none;
+
+    justify-content:center;
+    align-items:center;
+
+    background:#b7ecb2;
+
+    z-index:9000;
+
+}
