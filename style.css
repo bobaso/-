@@ -460,20 +460,20 @@ button:hover{
 #multiBtn{
 
     position:absolute;
-
     left:50%;
     transform:translateX(-50%);
 
     width:70%;
     max-width:360px;
-    height:90px;
+
+    height:80px;
 
     background:transparent;
     border:none;
-
     cursor:pointer;
 
     z-index:3;
+
 }
 
 /* 押された時 */
