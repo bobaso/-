@@ -413,8 +413,6 @@ button:hover{
     height:auto;
     display:block;
 pointer-events:none;
-    position:relative;
-    z-index:10000;
 }
 
 /* ボタンを置くため */
