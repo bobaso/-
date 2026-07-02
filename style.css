@@ -70,8 +70,8 @@ body{
     pointer-events:none;
 
     transition:
-        transform .12s ease,
-        filter .12s ease;
+        transform .3s ease,
+        filter .3s ease;
 }
 
 /* ボタン画像位置 */
