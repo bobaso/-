@@ -455,3 +455,34 @@ pointer-events:none;
     top:67%;
 
 }
+
+/* スタートボタン */
+#singleBtn,
+#multiBtn{
+
+    position:absolute;
+    left:50%;
+    transform:translateX(-50%);
+
+    width:70%;
+    max-width:360px;
+    height:90px;
+
+    background:transparent;
+    border:none;
+    cursor:pointer;
+
+    transition:transform .12s ease,
+               filter .12s ease;
+
+}
+
+/* 押された時 */
+#singleBtn.pressed,
+#multiBtn.pressed{
+
+    transform:translateX(-50%) scale(.96);
+
+    filter:brightness(.75);
+
+}
