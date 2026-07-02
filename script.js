@@ -461,14 +461,3 @@ multiBtn.onclick = () => {
     },120);
 
 };
-<div id="startScreen">
-
-    <img src="start_bg.png" id="startImage" alt="スタート">
-
-    <img src="single.png" id="singleImage" alt="">
-    <img src="multi.png" id="multiImage" alt="">
-
-    <button id="singleBtn"></button>
-    <button id="multiBtn"></button>
-
-</div>
