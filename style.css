@@ -147,14 +147,10 @@ body{
 /* タイトル */
 
 #gameTitle{
-
-    width:92%;
-    max-width:420px;
-
-    display:block;
-
-    margin:10px auto 15px;
-
+    width: min(92vw, 420px);
+    height: auto;
+    display: block;
+    margin: 10px auto 15px;
 }
 
 /* スコア */
