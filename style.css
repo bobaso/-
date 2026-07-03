@@ -353,16 +353,6 @@ body{
 
         margin-bottom:8px;
 
-    }
-
-    .boardWrapper{
-
-        width:min(90vw,calc(100dvh - 300px));
-
-    }
-
-}
-
 /*=========================
   高さが低い端末
 =========================*/
@@ -381,7 +371,7 @@ body{
 
 .boardWrapper{
 
-    width:min(92vw,calc(100dvh - 340px),460px);
+    width:min(96vw,78dvh,500px);
 
 }
 
@@ -414,11 +404,9 @@ body{
 
     position:relative;
 
-    width:100%;
+    width:min(92vw,420px);
 
-    max-width:420px;
-
-    margin-bottom:12px;
+    margin:0 auto 12px;
 
 }
 .scoreBg{
@@ -440,27 +428,23 @@ body{
 
 }
 
-/* あなた */
-
 .leftScore{
 
-left:24%;
+    left:24.5%;
 
-top:88.5%;
+    top:90%;
 
-color:#fff;
+    color:#fff;
 
 }
 
-/* あいて */
-
 .rightScore{
 
-left:78.5%;
+    left:78%;
 
-top:88.5%;
+    top:90%;
 
-color:#111;
+    color:#111;
 
 }
 
