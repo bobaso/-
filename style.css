@@ -136,7 +136,7 @@ body{
 
     width:min(100%,480px);
 
-    height:100dvh;
+    min-height:100dvh;
 
     margin:auto;
 
