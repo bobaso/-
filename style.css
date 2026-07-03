@@ -445,7 +445,7 @@ body{
     justify-content:space-between;
     align-items:center;
 
-    padding:10px 18% 0 18%;
+    transform:translateY(5px);
 
     font-size:36px;
     font-weight:bold;
