@@ -467,10 +467,3 @@ body{
     top:145px;
     color:#111;
 }
-#blackCount{
-    color:#fff; /* 黒のまま白文字 */
-}
-
-#whiteCount{
-    color:#111; /* 相手だけ黒文字 */
-}
