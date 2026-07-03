@@ -7,16 +7,14 @@
     box-sizing:border-box;
     font-family:"Yu Gothic","Hiragino Sans",sans-serif;
 }
-　　 　　　
-/*=========================
-  全体
-=========================*/
+
 body{
 
     background:#b7ecb2;
+    min-height:100dvh;
 
-    min-height:100vh;
 }
+
 /*=========================
   スタート画面
 =========================*/
@@ -33,24 +31,22 @@ body{
     background:#b7ecb2;
 
     z-index:9999;
+
 }
 
 #startContainer{
 
     position:relative;
-
     width:min(92vw,520px);
-}
 
-/* 背景画像 */
+}
 
 #startImage{
 
     width:100%;
     display:block;
-}
 
-/* ボタン画像 */
+}
 
 #singleImage,
 #multiImage{
@@ -59,30 +55,27 @@ body{
 
     left:50%;
 
-    transform:translateX(-50%);
-
     width:70%;
+
+    transform:translateX(-50%);
 
     pointer-events:none;
 
-    transition:
-        transform .10s ease,
-        filter .10s ease;
-}
+    transition:.12s;
 
-/* ボタン画像位置 */
+}
 
 #singleImage{
 
     top:44%;
+
 }
 
 #multiImage{
 
     top:63%;
-}
 
-/* 透明ボタン */
+}
 
 #singleBtn,
 #multiBtn{
@@ -96,27 +89,24 @@ body{
     width:70%;
     height:90px;
 
-    background:transparent;
+    background:none;
     border:none;
 
     cursor:pointer;
 
-    z-index:10;
 }
-
-/* ボタン位置 */
 
 #singleBtn{
 
     top:44%;
+
 }
 
 #multiBtn{
 
     top:63%;
-}
 
-/* 押した時 */
+}
 
 #singleImage.pressed,
 #multiImage.pressed{
@@ -124,254 +114,6 @@ body{
     transform:translateX(-50%) scale(.96);
 
     filter:brightness(.75);
-}
-
-/*=========================
-  ゲーム画面
-=========================*/
-
-.container{
-
-    width:min(100%,480px);
-
-    min-height:100dvh;
-
-    margin:auto;
-
-    display:flex;
-
-    flex-direction:column;
-
-    align-items:center;
-
-    justify-content:flex-start;
-
-    padding:10px;
-
-}
-
-/*=========================
-  メッセージ
-=========================*/
-#message{
-
-    font-size:22px;
-
-    font-weight:bold;
-
-    text-align:center;
-
-    min-height:32px;
-
-    margin-bottom:18px;
-
-}
-/*=========================
-  盤面
-=========================*/
-
-.boardWrapper{
-
-    position:relative;
-
-    width:min(90vw,70dvh,460px);
-}
-
-#board{
-
-    width:100%;
-
-    aspect-ratio:1;
-
-    background:#22a03d;
-
-    border:5px solid #0c5f24;
-
-    display:grid;
-
-    grid-template-columns:repeat(8,1fr);
-    grid-template-rows:repeat(8,1fr);
-}
-
-/*=========================
-  マス
-=========================*/
-
-.cell{
-
-    border:1px solid #0e6829;
-
-    position:relative;
-
-    cursor:pointer;
-}
-
-/*=========================
-  石
-=========================*/
-
-.stone{
-
-    position:absolute;
-
-    width:80%;
-    height:80%;
-
-    top:10%;
-    left:10%;
-
-    border-radius:50%;
-
-    transform-style:preserve-3d;
-
-    transition:transform .3s ease;
-
-    animation:pop .25s ease;
-}
-
-.black{
-
-    background:#111;
-}
-
-.white{
-
-    background:#fff;
-
-    border:1px solid #999;
-}
-
-.stone.flip{
-
-    transform:rotateY(180deg);
-}
-
-@keyframes pop{
-
-    0%{
-
-        transform:scale(0);
-    }
-
-    70%{
-
-        transform:scale(1.15);
-    }
-
-    100%{
-
-        transform:scale(1);
-    }
-}
-
-/*=========================
-  ゲーム終了
-=========================*/
-
-#gameOverPanel{
-
-    position:absolute;
-
-    inset:0;
-
-    display:none;
-
-    justify-content:center;
-    align-items:center;
-
-    background:rgba(0,0,0,.5);
-}
-
-#gameOverPanel.show{
-
-    display:flex;
-}
-
-.gameOverBox{
-
-    width:85%;
-    max-width:300px;
-
-    background:#fff;
-
-    border-radius:20px;
-
-    padding:30px 20px;
-
-    text-align:center;
-
-    box-shadow:0 10px 25px rgba(0,0,0,.35);
-}
-
-#resultMessage{
-
-    font-size:28px;
-
-    margin-bottom:20px;
-}
-
-/*=========================
-  ゲーム内ボタン
-=========================*/
-
-#restartBtn{
-
-    width:100%;
-
-    padding:15px;
-
-    border:none;
-
-    border-radius:12px;
-
-    background:#ff9800;
-
-    color:#fff;
-
-    font-size:20px;
-    font-weight:bold;
-
-    cursor:pointer;
-
-    transition:.2s;
-}
-
-#restartBtn:hover{
-
-    transform:scale(1.03);
-}
-
-@media (max-height:700px){
-
-    .scoreWrap{
-
-        max-width:360px;
-
-    }
-
-    #message{
-
-        margin-bottom:8px;
-
-/*=========================
-  高さが低い端末
-=========================*/
-
-@media (max-height:700px){
-#message{
-
-    font-size:clamp(18px,4vw,24px);
-
-    font-weight:bold;
-
-    margin-bottom:12px;
-
-}
-  }
-
-.boardWrapper{
-
-    width:min(96vw,78dvh,500px);
 
 }
 
@@ -382,6 +124,7 @@ body{
 #gameScreen{
 
     position:fixed;
+
     inset:0;
 
     display:none;
@@ -392,13 +135,27 @@ body{
 
     background:#b7ecb2;
 
-    z-index:9000;
-
     overflow:auto;
+
 }
-/* =========================
-   スコア画像UI
-========================= */
+
+.container{
+
+    width:min(100%,500px);
+
+    padding:12px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+}
+
+/*=========================
+  スコア
+=========================*/
 
 .scoreWrap{
 
@@ -406,25 +163,29 @@ body{
 
     width:min(92vw,420px);
 
-    margin:0 auto 12px;
+    margin-bottom:12px;
 
 }
+
 .scoreBg{
+
     width:100%;
+
     display:block;
+
 }
-/* 数字共通 */
+
 .scoreNum{
 
     position:absolute;
 
     transform:translate(-50%,-50%);
 
-    font-size:clamp(28px,7vw,38px);
+    font-size:clamp(30px,8vw,38px);
 
     font-weight:bold;
 
-    text-shadow:0 2px 4px rgba(0,0,0,.5);
+    text-shadow:0 2px 4px rgba(0,0,0,.45);
 
 }
 
@@ -448,14 +209,206 @@ body{
 
 }
 
-#blackCount{
+/*=========================
+  メッセージ
+=========================*/
 
-    color:#fff !important;
+#message{
+
+    margin-bottom:12px;
+
+    font-size:clamp(18px,4vw,24px);
+
+    font-weight:bold;
+
+    text-align:center;
 
 }
 
-#whiteCount{
+/*=========================
+  盤面
+=========================*/
 
-    color:#111 !important;
+.boardWrapper{
+
+    position:relative;
+
+    width:min(96vw,500px);
+
+}
+
+#board{
+
+    width:100%;
+
+    aspect-ratio:1;
+
+    background:#22a03d;
+
+    border:5px solid #0c5f24;
+
+    display:grid;
+
+    grid-template-columns:repeat(8,1fr);
+
+    grid-template-rows:repeat(8,1fr);
+
+}
+
+.cell{
+
+    position:relative;
+
+    border:1px solid #0e6829;
+
+    cursor:pointer;
+
+}
+
+/*=========================
+  石
+=========================*/
+
+.stone{
+
+    position:absolute;
+
+    top:10%;
+    left:10%;
+
+    width:80%;
+    height:80%;
+
+    border-radius:50%;
+
+    animation:pop .25s;
+
+    transition:.3s;
+
+}
+
+.black{
+
+    background:#111;
+
+}
+
+.white{
+
+    background:#fff;
+
+    border:1px solid #999;
+
+}
+
+.stone.flip{
+
+    transform:rotateY(180deg);
+
+}
+
+@keyframes pop{
+
+    from{
+
+        transform:scale(0);
+
+    }
+
+    to{
+
+        transform:scale(1);
+
+    }
+
+}
+
+/*=========================
+  終了画面
+=========================*/
+
+#gameOverPanel{
+
+    position:absolute;
+
+    inset:0;
+
+    display:none;
+
+    justify-content:center;
+
+    align-items:center;
+
+    background:rgba(0,0,0,.5);
+
+}
+
+#gameOverPanel.show{
+
+    display:flex;
+
+}
+
+.gameOverBox{
+
+    width:85%;
+
+    max-width:300px;
+
+    background:#fff;
+
+    border-radius:20px;
+
+    padding:28px;
+
+    text-align:center;
+
+}
+
+#resultMessage{
+
+    font-size:28px;
+
+    margin-bottom:20px;
+
+}
+
+#restartBtn{
+
+    width:100%;
+
+    padding:15px;
+
+    border:none;
+
+    border-radius:12px;
+
+    background:#ff9800;
+
+    color:#fff;
+
+    font-size:20px;
+
+    cursor:pointer;
+
+}
+
+/*=========================
+  小さい端末
+=========================*/
+
+@media (max-height:700px){
+
+    .scoreWrap{
+
+        width:min(90vw,360px);
+
+    }
+
+    .boardWrapper{
+
+        width:min(94vw,430px);
+
+    }
 
 }
