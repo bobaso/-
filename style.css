@@ -139,9 +139,14 @@ body{
     width:100%;
     max-width:480px;
 
+    height:100dvh;
+
     display:flex;
     flex-direction:column;
     align-items:center;
+    justify-content:flex-start;
+
+    padding:10px;
 }
 
 /* タイトル */
@@ -398,10 +403,9 @@ body{
         font-size:16px;
     }
 
-    .boardWrapper{
-
-        width:min(88vw,60dvh,420px);
-    }
+  .boardWrapper{
+    width:min(88vw,420px);
+}
 }
 /*=========================
   ゲーム画面
@@ -450,11 +454,13 @@ body{
     transform:translate(-50%, -50%);
 }
 .leftScore{
-    left:97px;
-    top:204px;
-    transform:translate(-50%, -50%);
+    left:23%;
+    top:78%;
+}
 
-    color:#fff;
+.rightScore{
+    left:76%;
+    top:78%;
 }
 
 .rightScore{
