@@ -16,82 +16,58 @@
 
     <div id="startContainer">
 
-        <img src="start.png" id="startImage">
+        <img src="start.png" id="startImage" alt="スタート背景">
 
-        <img src="singleBtn.png" id="singleImage">
-
-        <img src="multiBtn.png" id="multiImage">
+        <img src="singleBtn.png" id="singleImage" alt="ひとりであそぶ">
+        <img src="multiBtn.png" id="multiImage" alt="ふたりであそぶ">
 
         <button id="singleBtn"></button>
-
         <button id="multiBtn"></button>
 
     </div>
 
 </div>
 
-    <!-- 背景 -->
-    <img src="start.png" id="startImage" alt="スタート">
+<!-- ゲーム画面 -->
+<div id="gameScreen" style="display:none;">
 
-    <!-- ボタン画像 -->
-    <img src="singleBtn.png" id="singleImage" alt="ひとりであそぶ">
-    <img src="multiBtn.png" id="multiImage" alt="ふたりであそぶ">
+    <div class="container">
 
-    <!-- クリック判定用 -->
-    <button id="singleBtn"></button>
-    <button id="multiBtn"></button>
+        <!-- タイトル -->
+        <img src="title.png" id="gameTitle" alt="リバーシゲーム">
 
-</div>
+        <!-- スコア（画像UI） -->
+        <div class="scoreWrap">
 
-    <!-- ゲーム画面 -->
-    <div id="gameScreen" style="display:none;">
+            <img src="title.png" class="scoreBg" alt="スコア背景">
 
-        <div class="container">
+            <div class="scoreText">
+                <div id="blackCount">2</div>
+                <div id="whiteCount">2</div>
+            </div>
 
-            <img src="title.png" id="gameTitle" alt="リバーシゲーム">
+        </div>
 
-<div class="scoreWrap">
+        <!-- メッセージ -->
+        <div id="message">
+            あなたの番です
+        </div>
 
-    <img src="title.png" class="scoreBg" alt="スコア背景">
+        <!-- 盤面 -->
+        <div class="boardWrapper">
 
-    <div class="scoreText">
-        <div id="blackCount">2</div>
-        <div id="whiteCount">2</div>
-    </div>
+            <div id="board"></div>
 
-</div>
+            <!-- ゲーム終了 -->
+            <div id="gameOverPanel">
 
-    <div class="playerBox">
+                <div class="gameOverBox">
 
-        <div class="stoneIcon whiteStone"></div>
+                    <h2 id="resultMessage"></h2>
 
-        <div class="score" id="whiteCount">2</div>
-
-        <div class="playerName">あいて</div>
-
-    </div>
-
-</div>
-
-<div id="message">
-あなたの番です
-</div>
-
-            <div class="boardWrapper">
-
-                <div id="board"></div>
-
-                <div id="gameOverPanel">
-
-                    <div class="gameOverBox">
-
-                        <h2 id="resultMessage"></h2>
-
-                        <button id="restartBtn">
-                            もう一回遊ぶ
-                        </button>
-
-                    </div>
+                    <button id="restartBtn">
+                        もう一回遊ぶ
+                    </button>
 
                 </div>
 
@@ -101,8 +77,9 @@
 
     </div>
 
-    <script src="script.js"></script>
+</div>
+
+<script src="script.js"></script>
 
 </body>
-
 </html>
