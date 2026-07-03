@@ -371,6 +371,7 @@ body{
   高さが低い端末
 =========================*/
 
+@media (max-height:700px){
 #message{
 
     font-size:clamp(18px,4vw,24px);
@@ -380,6 +381,7 @@ body{
     margin-bottom:12px;
 
 }
+  }
 
 .boardWrapper{
 
