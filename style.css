@@ -436,6 +436,19 @@ body{
     width:100%;
     display:block;
 }
+/* 数字共通 */
+
+.scoreNum{
+
+    position:absolute;
+
+    font-size:36px;
+    font-weight:bold;
+
+    text-shadow:0 2px 4px rgba(0,0,0,.6);
+
+    transform:translate(-50%, -50%);
+}
 .leftScore{
     left:97px;
     top:204px;
@@ -446,26 +459,4 @@ body{
     left:321px;
     top:206px;
     transform:translate(-50%, -50%);
-}
-/* 共通 */
-#blackCount,
-#whiteCount{
-    position:absolute;
-
-    font-size:36px;
-    font-weight:bold;
-    text-shadow:0 2px 4px rgba(0,0,0,.6);
-}
-
-/* 左（あなた） */
-#blackCount{
-    left:18px;
-    top:92px;
-    color:#fff;
-}
-
-#whiteCount{
-    right:18px;
-    top:92px;
-    color:#111;
 }
