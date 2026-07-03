@@ -455,3 +455,10 @@ body{
 
     pointer-events:none;
 }
+#blackCount{
+    color:#fff; /* 黒のまま白文字 */
+}
+
+#whiteCount{
+    color:#111; /* 相手だけ黒文字 */
+}
