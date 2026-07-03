@@ -429,19 +429,12 @@ body{
 .scoreWrap{
     position:relative;
     width:min(92vw,420px);
-    margin:10px auto 15px;
+    margin:0 auto 20px;
 }
 
 .scoreBg{
     width:100%;
     display:block;
-}
-
-.scoreText{
-    position:absolute;
-    inset:0;
-
-    pointer-events:none;
 }
 
 /* 共通 */
@@ -456,14 +449,13 @@ body{
 
 /* 左（あなた） */
 #blackCount{
-    left:38px;
-    top:145px;
+    left:18px;
+    top:92px;
     color:#fff;
 }
 
-/* 右（相手） */
 #whiteCount{
-    right:38px;
-    top:145px;
+    right:18px;
+    top:92px;
     color:#111;
 }
