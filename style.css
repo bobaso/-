@@ -436,7 +436,17 @@ body{
     width:100%;
     display:block;
 }
+.leftScore{
+    left:97px;
+    top:204px;
+    transform:translate(-50%, -50%);
+}
 
+.rightScore{
+    left:321px;
+    top:206px;
+    transform:translate(-50%, -50%);
+}
 /* 共通 */
 #blackCount,
 #whiteCount{
