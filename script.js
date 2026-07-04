@@ -123,13 +123,24 @@ function updateBoard(){
     blackCountElement.textContent = black;
     whiteCountElement.textContent = white;
 
+if(gameMode === "single"){
+
     if(currentPlayer === 1){
         messageElement.textContent = "あなたの番です";
     }else{
         messageElement.textContent = "あいてが考えています…";
     }
 
+}else{
+
+    if(currentPlayer === 1){
+        messageElement.textContent = "黒の番です";
+    }else{
+        messageElement.textContent = "白の番です";
+    }
+
 }
+
 
 // マスをクリック
 function onCellClick(event){
@@ -262,10 +273,13 @@ setTimeout(() => {
 
     updateBoard();
 
-    checkTurn();
+    if(gameMode === "single"){
+        checkTurn();
+    }else{
+        checkTurnMulti();
+    }
 
 },300);
-}
 
 // CPU（弱い・ランダム）
 function cpuMove(){
@@ -306,6 +320,46 @@ function cpuMove(){
 
 // パス処理・手番管理
 function checkTurn(){
+    function checkTurnMulti(){
+
+    const canBlack = hasMove(1);
+    const canWhite = hasMove(2);
+
+    // 両者置けない
+    if(!canBlack && !canWhite){
+
+        finishGame();
+        return;
+
+    }
+
+    if(currentPlayer === 1){
+
+        if(!canBlack){
+
+            messageElement.textContent = "黒はパスです";
+
+            currentPlayer = 2;
+
+            updateBoard();
+
+        }
+
+    }else{
+
+        if(!canWhite){
+
+            messageElement.textContent = "白はパスです";
+
+            currentPlayer = 1;
+
+            updateBoard();
+
+        }
+
+    }
+
+}
 
     const canBlack = hasMove(1);
     const canWhite = hasMove(2);
@@ -399,17 +453,37 @@ function finishGame(){
     blackCountElement.textContent = black;
     whiteCountElement.textContent = white;
 
-if(black > white){
+if(gameMode === "single"){
 
-    resultMessage.textContent = "あなたの勝ち！";
+    if(black > white){
 
-}else if(white > black){
+        resultMessage.textContent = "あなたの勝ち！";
 
-    resultMessage.textContent = "あなたの負け！";
+    }else if(white > black){
+
+        resultMessage.textContent = "あなたの負け！";
+
+    }else{
+
+        resultMessage.textContent = "引き分け！";
+
+    }
 
 }else{
 
-    resultMessage.textContent = "引き分け！";
+    if(black > white){
+
+        resultMessage.textContent = "黒の勝ち！";
+
+    }else if(white > black){
+
+        resultMessage.textContent = "白の勝ち！";
+
+    }else{
+
+        resultMessage.textContent = "引き分け！";
+
+    }
 
 }
 
@@ -440,6 +514,8 @@ const multiImage = document.getElementById("multiImage");
 
 singleBtn.onclick = () => {
 
+    gameMode = "single";
+
     singleImage.classList.add("pressed");
 
     setTimeout(() => {
@@ -454,13 +530,16 @@ singleBtn.onclick = () => {
 };
 multiBtn.onclick = () => {
 
+    gameMode = "multi";
+
     multiImage.classList.add("pressed");
 
     setTimeout(() => {
 
-        alert("ふたり対戦モードは制作中です");
+        startScreen.style.display = "none";
+        gameScreen.style.display = "flex";
 
-        multiImage.classList.remove("pressed");
+        initGame();
 
     },120);
 
