@@ -135,7 +135,7 @@ body{
 
     background:#b7ecb2;
 
-    z-index:9998;
+    z-index:10000;
 
 }
 
@@ -145,6 +145,11 @@ body{
 
     width:min(92vw,520px);
 
+}
+#difficultyScreen{
+    display:none;
+    justify-content:center;
+    align-items:center;
 }
 
 #difficultyImage{
@@ -292,7 +297,7 @@ body{
 
 #backImage.pressed{
 
-    transform:scale(.94);
+    transform:scale(.9);
 
     filter:brightness(.75);
 
@@ -547,4 +552,27 @@ body{
     cursor:pointer;
 
 }
+button{
+    touch-action: manipulation;
+}
 
+#startScreen,
+#difficultyScreen,
+#gameScreen{
+    position:fixed;
+    inset:0;
+    width:100%;
+    height:100dvh;
+}
+#startScreen{
+    display:flex;
+}
+
+#difficultyScreen{
+    display:none;
+}
+
+#gameScreen{
+    display:none;
+    flex-direction:column;
+}
