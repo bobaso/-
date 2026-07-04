@@ -146,11 +146,6 @@ body{
     width:min(92vw,520px);
 
 }
-#difficultyScreen{
-    display:none;
-    justify-content:center;
-    align-items:center;
-}
 
 #difficultyImage{
 
