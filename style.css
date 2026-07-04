@@ -155,21 +155,14 @@ body{
   スコア
 =========================*/
 .scoreWrap{
-
     position:relative;
-
-    width:min(96vw,460px);
-
+    width:min(96vw,420px);
     margin-bottom:12px;
-
 }
 
 .scoreBg{
-
-    width:100%;
-
     display:block;
-
+    width:100%;
 }
 
 .scoreNum{
@@ -181,15 +174,17 @@ body{
     z-index:2;
 }
 
+/* あなた */
 .leftScore{
-    left:23%;
-    top:84.6%;
+    left:82px;
+    top:171px;
     color:#fff;
 }
 
+/* あいて */
 .rightScore{
-    left:77%;
-    top:84.6%;
+    left:337px;
+    top:171px;
     color:#111;
 }
 
