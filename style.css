@@ -173,20 +173,14 @@ body{
 }
 
 .scoreNum{
-
     position:absolute;
-
     transform:translate(-50%,-50%);
-
     font-size:clamp(30px,8vw,38px);
-
     font-weight:bold;
-
     text-shadow:0 2px 4px rgba(0,0,0,.45);
-
     z-index:2;
-
 }
+
 .leftScore{
     left:23%;
     top:85.8%;
