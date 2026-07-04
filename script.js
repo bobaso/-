@@ -9,6 +9,10 @@ let board = [];
 // 1 = 黒（あなた）
 // 2 = 白（CPU）
 let currentPlayer = 1;
+// ゲームモード
+// "single" = CPU戦
+// "multi" = 2人対戦
+let gameMode = "single";
 
 // HTML取得
 const boardElement = document.getElementById("board");
