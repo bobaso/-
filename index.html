@@ -10,67 +10,55 @@
 </head>
 
 <body>
-　
+
 <!-- スタート画面 -->
 <div id="startScreen">
 
-    <div id="startContainer">
+    ・・・
+    
+</div>
 
-        <img src="start.png" id="startImage" alt="スタート背景">
+<!--=========================
+    難易度選択画面
+==========================-->
+<div id="difficultyScreen">
 
-        <img src="singleBtn.png" id="singleImage" alt="ひとりであそぶ">
-        <img src="multiBtn.png" id="multiImage" alt="ふたりであそぶ">
+    <div id="difficultyContainer">
 
-        <button id="singleBtn"></button>
-        <button id="multiBtn"></button>
+        <img src="difficulty.png"
+             id="difficultyImage"
+             alt="難易度選択">
+
+        <img src="easyBtn.png"
+             id="easyImage"
+             alt="かんたん">
+
+        <img src="normalBtn.png"
+             id="normalImage"
+             alt="ふつう">
+
+        <img src="hardBtn.png"
+             id="hardImage"
+             alt="むずかしい">
+
+        <img src="backCircle.png"
+             id="backImage"
+             alt="戻る">
+
+        <button id="easyBtn"></button>
+        <button id="normalBtn"></button>
+        <button id="hardBtn"></button>
+
+        <button id="backBtn"></button>
 
     </div>
 
 </div>
 
 <!-- ゲーム画面 -->
-<div id="gameScreen" >
+<div id="gameScreen">
 
-    <div class="container">
-
-        <!-- スコア（画像UI） -->
-        <div class="scoreWrap">
-
-    <img src="title.png" class="scoreBg" alt="スコア背景">
-
-    <div id="blackCount" class="scoreNum leftScore">2</div>
-    <div id="whiteCount" class="scoreNum rightScore">2</div>
-
-</div>
-
-        <!-- メッセージ -->
-        <div id="message">
-            あなたの番です
-        </div>
-
-        <!-- 盤面 -->
-        <div class="boardWrapper">
-
-            <div id="board"></div>
-
-            <!-- ゲーム終了 -->
-            <div id="gameOverPanel">
-
-                <div class="gameOverBox">
-
-                    <h2 id="resultMessage"></h2>
-
-                    <button id="restartBtn">
-                        もう一回遊ぶ
-                    </button>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
+    ・・・
 
 </div>
 
