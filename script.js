@@ -13,6 +13,8 @@ let currentPlayer = 1;
 // "single" = CPU戦
 // "multi" = 2人対戦
 let gameMode = "single";
+// CPU難易度
+let cpuLevel = "easy";
 
 // HTML取得
 const boardElement = document.getElementById("board");
@@ -145,14 +147,19 @@ if(gameMode === "single"){
 // マスをクリック
 function onCellClick(event){
 
-    if(currentPlayer !== 1) return;
+    // 一人用は黒だけ操作
+    if(gameMode === "single" && currentPlayer !== 1){
+        return;
+    }
 
     const x = Number(event.currentTarget.dataset.x);
     const y = Number(event.currentTarget.dataset.y);
 
-    if(!canPlace(x, y, 1)) return;
+    if(!canPlace(x, y, currentPlayer)){
+        return;
+    }
 
-    placeStone(x, y, 1);
+    placeStone(x, y, currentPlayer);
 
 }
 
