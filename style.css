@@ -176,15 +176,14 @@ body{
 
 /* あなた */
 .leftScore{
-    left:82px;
-    top:171px;
+    left:19.5%;
+    top:74.3%;
     color:#fff;
 }
 
-/* あいて */
 .rightScore{
-    left:337px;
-    top:171px;
+    left:80.2%;
+    top:74.3%;
     color:#111;
 }
 
