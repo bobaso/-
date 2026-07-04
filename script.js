@@ -295,36 +295,161 @@ function cpuMove(){
 
     const moves = [];
 
-    for(let y=0; y<SIZE; y++){
-
-        for(let x=0; x<SIZE; x++){
-
+    // 置ける手を全部取得
+    for(let y = 0; y < SIZE; y++){
+        for(let x = 0; x < SIZE; x++){
             if(canPlace(x, y, 2)){
-
                 moves.push({x, y});
-
             }
-
         }
-
     }
 
     if(moves.length === 0){
-
         checkTurn();
         return;
+    }
+
+    let move;
+
+    // =========================
+    // EASY（完全ランダム）
+    // =========================
+    if(cpuLevel === "easy"){
+
+        move = moves[Math.floor(Math.random() * moves.length)];
 
     }
 
-    const move =
-        moves[Math.floor(Math.random() * moves.length)];
+    // =========================
+    // NORMAL（少しだけ賢い）
+    // → 取れる枚数が多い手を優先
+    // =========================
+    else if(cpuLevel === "normal"){
 
-    setTimeout(()=>{
+        let bestScore = -1;
+        let candidates = [];
 
+        for(const m of moves){
+
+            let score = countFlips(m.x, m.y, 2);
+
+            if(score > bestScore){
+                bestScore = score;
+                candidates = [m];
+            }else if(score === bestScore){
+                candidates.push(m);
+            }
+        }
+
+        move = candidates[Math.floor(Math.random() * candidates.length)];
+    }
+
+    // =========================
+    // HARD（角優先＋最強寄り）
+    // =========================
+    else if(cpuLevel === "hard"){
+
+        const corners = [
+            [0,0],
+            [0,SIZE-1],
+            [SIZE-1,0],
+            [SIZE-1,SIZE-1]
+        ];
+
+        // 角があれば即選択
+        for(const m of moves){
+            for(const c of corners){
+                if(m.x === c[0] && m.y === c[1]){
+                    move = m;
+                }
+            }
+        }
+
+        // 角がなければスコア最大
+        if(!move){
+
+            let bestScore = -1;
+            let candidates = [];
+
+            for(const m of moves){
+
+                let score =
+                    countFlips(m.x, m.y, 2) +
+                    stabilityBonus(m.x, m.y);
+
+                if(score > bestScore){
+                    bestScore = score;
+                    candidates = [m];
+                }else if(score === bestScore){
+                    candidates.push(m);
+                }
+            }
+
+            move = candidates[Math.floor(Math.random() * candidates.length)];
+        }
+    }
+
+    setTimeout(() => {
         placeStone(move.x, move.y, 2);
-
     }, 500);
+}
+function countFlips(x, y, player){
 
+    let total = 0;
+    const enemy = player === 1 ? 2 : 1;
+
+    for(const [dx, dy] of directions){
+
+        let nx = x + dx;
+        let ny = y + dy;
+
+        let count = 0;
+
+        while(
+            nx >= 0 &&
+            nx < SIZE &&
+            ny >= 0 &&
+            ny < SIZE
+        ){
+
+            if(board[ny][nx] === enemy){
+                count++;
+            }else if(board[ny][nx] === player){
+                total += count;
+                break;
+            }else{
+                break;
+            }
+
+            nx += dx;
+            ny += dy;
+        }
+    }
+
+    return total;
+}
+function stabilityBonus(x, y){
+
+    const corners = [
+        [0,0],
+        [0,SIZE-1],
+        [SIZE-1,0],
+        [SIZE-1,SIZE-1]
+    ];
+
+    let bonus = 0;
+
+    // 角に近いほど評価
+    for(const c of corners){
+
+        const dist =
+            Math.abs(x - c[0]) +
+            Math.abs(y - c[1]);
+
+        bonus += (10 - dist);
+    }
+
+    return bonus;
 }
 
 // パス処理・手番管理
