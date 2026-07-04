@@ -120,6 +120,184 @@ body{
 }
 
 /*=========================
+  難易度選択画面
+=========================*/
+
+#difficultyScreen{
+
+    position:fixed;
+    inset:0;
+
+    display:none;
+
+    justify-content:center;
+    align-items:center;
+
+    background:#b7ecb2;
+
+    z-index:9998;
+
+}
+
+#difficultyContainer{
+
+    position:relative;
+
+    width:min(92vw,520px);
+
+}
+
+#difficultyImage{
+
+    width:100%;
+
+    display:block;
+
+}
+
+/*=========================
+  ボタン画像
+=========================*/
+
+#easyImage,
+#normalImage,
+#hardImage{
+
+    position:absolute;
+
+    left:50%;
+
+    width:70%;
+
+    transform:translateX(-50%);
+
+    pointer-events:none;
+
+    transition:.12s;
+
+}
+
+#easyImage{
+
+    top:34%;
+
+}
+
+#normalImage{
+
+    top:49%;
+
+}
+
+#hardImage{
+
+    top:64%;
+
+}
+
+/*=========================
+  戻るボタン（125×125）
+=========================*/
+
+#backImage{
+
+    position:absolute;
+
+    width:125px;
+    height:125px;
+
+    left:18px;
+    bottom:18px;
+
+    pointer-events:none;
+
+    transition:.12s;
+
+}
+
+/*=========================
+  透明ボタン
+=========================*/
+
+#easyBtn,
+#normalBtn,
+#hardBtn{
+
+    position:absolute;
+
+    left:50%;
+
+    transform:translateX(-50%);
+
+    width:70%;
+    height:80px;
+
+    background:none;
+
+    border:none;
+
+    cursor:pointer;
+
+}
+
+#easyBtn{
+
+    top:34%;
+
+}
+
+#normalBtn{
+
+    top:49%;
+
+}
+
+#hardBtn{
+
+    top:64%;
+
+}
+
+#backBtn{
+
+    position:absolute;
+
+    left:18px;
+    bottom:18px;
+
+    width:125px;
+    height:125px;
+
+    background:none;
+
+    border:none;
+
+    cursor:pointer;
+
+}
+
+/*=========================
+  押した演出
+=========================*/
+
+#easyImage.pressed,
+#normalImage.pressed,
+#hardImage.pressed{
+
+    transform:translateX(-50%) scale(.96);
+
+    filter:brightness(.75);
+
+}
+
+#backImage.pressed{
+
+    transform:scale(.94);
+
+    filter:brightness(.75);
+
+}
+/*=========================
   ゲーム画面
 =========================*/
 #gameScreen{
