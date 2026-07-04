@@ -1,7 +1,7 @@
 　
 // 定数
 const SIZE = 8;
-
+　
 // 盤面
 let board = [];
 
