@@ -74,9 +74,52 @@
 </div>
 
 <!-- ゲーム画面 -->
+<!-- ゲーム画面 -->
 <div id="gameScreen">
 
-<div class="container">
+    <div class="container">
+
+        <!-- スコア -->
+        <div class="scoreWrap">
+
+            <img src="score.png"
+                 class="scoreBg"
+                 alt="スコア">
+
+            <div id="blackCount"
+                 class="scoreNum leftScore">2</div>
+
+            <div id="whiteCount"
+                 class="scoreNum rightScore">2</div>
+
+        </div>
+
+        <!-- メッセージ -->
+        <div id="message"></div>
+
+        <!-- 盤面 -->
+        <div class="boardWrapper">
+
+            <div id="board"></div>
+
+            <!-- 終了画面 -->
+            <div id="gameOverPanel">
+
+                <div class="gameOverBox">
+
+                    <div id="resultMessage"></div>
+
+                    <button id="restartBtn">
+                        もう一回遊ぶ
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
 
 </div>
 
