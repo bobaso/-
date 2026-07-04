@@ -156,34 +156,34 @@ body{
 =========================*/
 .scoreWrap{
     position:relative;
-    width:min(96vw,420px);
+    width:min(98vw,560px);
     margin-bottom:12px;
 }
-
 .scoreBg{
     display:block;
-    width:100%;
+    width:420px;
+    max-width:100%;
+    margin:auto;
 }
-
 .scoreNum{
     position:absolute;
+    z-index:10;
     transform:translate(-50%,-50%);
-    font-size:clamp(30px,8vw,38px);
+    font-size:34px;
     font-weight:bold;
-    text-shadow:0 2px 4px rgba(0,0,0,.45);
-    z-index:2;
+    text-shadow:0 2px 5px rgba(0,0,0,.45);
 }
 
 /* あなた */
 .leftScore{
-    left:19.5%;
-    top:74.3%;
+    left:82px;
+    top:171px;
     color:#fff;
 }
 
 .rightScore{
-    left:80.2%;
-    top:74.3%;
+    left:337px;
+    top:171px;
     color:#111;
 }
 
