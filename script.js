@@ -520,6 +520,12 @@ const singleBtn = document.getElementById("singleBtn");
 const multiBtn = document.getElementById("multiBtn");
 const singleImage = document.getElementById("singleImage");
 const multiImage = document.getElementById("multiImage");
+const difficultyScreen = document.getElementById("difficultyScreen");
+
+const easyBtn = document.getElementById("easyBtn");
+const normalBtn = document.getElementById("normalBtn");
+const hardBtn = document.getElementById("hardBtn");
+const backBtn = document.getElementById("backBtn");
 
 singleBtn.onclick = () => {
 
@@ -529,12 +535,9 @@ singleBtn.onclick = () => {
 
     setTimeout(() => {
 
-        startScreen.style.display = "none";
-        gameScreen.style.display = "flex";
+        showScreen(difficultyScreen);
 
-        initGame();
-
-    },120);
+    }, 120);
 
 };
 multiBtn.onclick = () => {
@@ -553,3 +556,37 @@ multiBtn.onclick = () => {
     },120);
 
 };
+function startGame(){
+
+    showScreen(gameScreen);
+
+    initGame();
+
+    console.log("難易度:", cpuLevel);
+
+}
+easyBtn.onclick = () => {
+    cpuLevel = "easy";
+    startGame();
+};
+
+normalBtn.onclick = () => {
+    cpuLevel = "normal";
+    startGame();
+};
+
+hardBtn.onclick = () => {
+    cpuLevel = "hard";
+    startGame();
+};
+backBtn.onclick = () => {
+    showScreen(startScreen);
+};
+function showScreen(screen){
+
+    startScreen.style.display = "none";
+    difficultyScreen.style.display = "none";
+    gameScreen.style.display = "none";
+
+    screen.style.display = "flex";
+}
