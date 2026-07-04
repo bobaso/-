@@ -130,7 +130,6 @@ if(gameMode === "single"){
     }else{
         messageElement.textContent = "あいてが考えています…";
     }
-
 }else{
 
     if(currentPlayer === 1){
@@ -139,8 +138,9 @@ if(gameMode === "single"){
         messageElement.textContent = "白の番です";
     }
 
-}
+}   
 
+}   
 
 // マスをクリック
 function onCellClick(event){
@@ -281,7 +281,9 @@ setTimeout(() => {
 
 },300);
 
-// CPU（弱い・ランダム）
+}   
+
+// CPU
 function cpuMove(){
 
     const moves = [];
@@ -320,47 +322,7 @@ function cpuMove(){
 
 // パス処理・手番管理
 function checkTurn(){
-    function checkTurnMulti(){
-
-    const canBlack = hasMove(1);
-    const canWhite = hasMove(2);
-
-    // 両者置けない
-    if(!canBlack && !canWhite){
-
-        finishGame();
-        return;
-
-    }
-
-    if(currentPlayer === 1){
-
-        if(!canBlack){
-
-            messageElement.textContent = "黒はパスです";
-
-            currentPlayer = 2;
-
-            updateBoard();
-
-        }
-
-    }else{
-
-        if(!canWhite){
-
-            messageElement.textContent = "白はパスです";
-
-            currentPlayer = 1;
-
-            updateBoard();
-
-        }
-
-    }
-
-}
-
+   
     const canBlack = hasMove(1);
     const canWhite = hasMove(2);
 
@@ -406,6 +368,46 @@ function checkTurn(){
         }
 
         cpuMove();
+
+    }
+
+}
+function checkTurnMulti(){
+
+    const canBlack = hasMove(1);
+    const canWhite = hasMove(2);
+
+    // 両者置けない
+    if(!canBlack && !canWhite){
+
+        finishGame();
+        return;
+
+    }
+
+    if(currentPlayer === 1){
+
+        if(!canBlack){
+
+            messageElement.textContent = "黒はパスです";
+
+            currentPlayer = 2;
+
+            updateBoard();
+
+        }
+
+    }else{
+
+        if(!canWhite){
+
+            messageElement.textContent = "白はパスです";
+
+            currentPlayer = 1;
+
+            updateBoard();
+
+        }
 
     }
 
