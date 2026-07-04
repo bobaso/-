@@ -12,7 +12,9 @@ body{
 
     background:#b7ecb2;
     min-height:100dvh;
- 
+
+    overflow:hidden;
+
 }
 
 /*=========================
@@ -120,23 +122,21 @@ body{
 /*=========================
   ゲーム画面
 =========================*/
-
 #gameScreen{
 
     position:fixed;
-
     inset:0;
 
     display:none;
 
     justify-content:center;
-
     align-items:flex-start;
 
     background:#b7ecb2;
 
     overflow:auto;
 
+    z-index:9000;
 }
 
 .container{
@@ -156,14 +156,9 @@ body{
 /*=========================
   スコア
 =========================*/
-
 .scoreWrap{
 
-    position:relative;
-
-    width:min(92vw,420px);
-
-    margin-bottom:12px;
+    width:min(96vw,460px);
 
 }
 
@@ -191,20 +186,16 @@ body{
 
 .leftScore{
 
-    left:24.5%;
-
-    top:90%;
-
+    left:22.8%;
+    top:86.8%;
     color:#fff;
 
 }
 
 .rightScore{
 
-    left:78%;
-
-    top:90%;
-
+    left:77.2%;
+    top:86.8%;
     color:#111;
 
 }
@@ -228,12 +219,9 @@ body{
 /*=========================
   盤面
 =========================*/
-
 .boardWrapper{
 
-    position:relative;
-
-    width:min(96vw,500px);
+    width:min(98vw,560px);
 
 }
 
