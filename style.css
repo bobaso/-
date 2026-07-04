@@ -156,14 +156,14 @@ body{
 =========================*/
 .scoreWrap{
     position:relative;
-    width:min(98vw,560px);
-    margin-bottom:12px;
+    width:min(96vw,420px);
+    margin:0 auto 12px;
 }
+
 .scoreBg{
     display:block;
-    width:420px;
-    max-width:100%;
-    margin:auto;
+    width:100%;
+    height:auto;
 }
 .scoreNum{
     position:absolute;
@@ -176,14 +176,14 @@ body{
 
 /* あなた */
 .leftScore{
-    left:82px;
-    top:171px;
+    left:19.5%;
+    top:74.3%;
     color:#fff;
 }
 
 .rightScore{
-    left:337px;
-    top:171px;
+    left:80.2%;
+    top:74.3%;
     color:#111;
 }
 
@@ -370,22 +370,3 @@ body{
 
 }
 
-/*=========================
-  小さい端末
-=========================*/
-
-@media (max-height:700px){
-
-    .scoreWrap{
-
-        width:min(90vw,360px);
-
-    }
-
-    .boardWrapper{
-
-        width:min(94vw,430px);
-
-    }
-
-}
