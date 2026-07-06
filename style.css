@@ -125,9 +125,6 @@ body{
 
 #difficultyScreen{
 
-    position:fixed;
-    inset:0;
-
     display:none;
 
     justify-content:center;
@@ -581,17 +578,11 @@ button{
 
 }
 /*=========================
-  画面スライド
+  難易度画面スライド
 =========================*/
 
-.screenSlideIn{
+#difficultyScreen.open{
 
     transform:translateX(0);
-
-}
-
-.screenSlideOut{
-
-    transform:translateX(100%);
 
 }
