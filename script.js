@@ -22,6 +22,7 @@ const messageElement = document.getElementById("message");
 const blackCountElement = document.getElementById("blackCount");
 const whiteCountElement = document.getElementById("whiteCount");
 const restartBtn = document.getElementById("restartBtn");
+const titleBtn = document.getElementById("titleBtn");
 const gameOverPanel = document.getElementById("gameOverPanel");
 const resultMessage = document.getElementById("resultMessage");
 
