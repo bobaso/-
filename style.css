@@ -327,19 +327,7 @@ body{
     align-items:center;
 
 }
-/*=========================
-  タイトル画像
-=========================*/
 
-#titleImage{
-
-    width:min(96vw,420px);
-
-    margin:10px auto 12px;
-
-    display:block;
-
-}
 /*=========================
   スコア
 =========================*/
@@ -349,13 +337,11 @@ body{
     margin:0 auto 12px;
 }
 #titleImage{
-
     display:block;
-
     width:100%;
-
+    max-width:420px;
     height:auto;
-
+    margin:10px auto 12px;
 }
 .scoreNum{
     position:absolute;
