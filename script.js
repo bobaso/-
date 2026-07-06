@@ -746,4 +746,3 @@ function showScreen(screen){
     gameScreen.style.display = "flex";
 
 }
-}
