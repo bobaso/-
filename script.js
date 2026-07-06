@@ -705,13 +705,42 @@ hardBtn.onclick = () => {
     startGame();
 };
 backBtn.onclick = () => {
-    showScreen(startScreen);
+
+    difficultyScreen.classList.remove("showScreen");
+    difficultyScreen.classList.add("hideScreen");
+
+    setTimeout(() => {
+
+        difficultyScreen.style.display = "none";
+        startScreen.style.display = "flex";
+
+    },350);
+
 };
 function showScreen(screen){
 
+    // 全画面を非表示
     startScreen.style.display = "none";
-    difficultyScreen.style.display = "none";
+    difficultyScreen.classList.remove("showScreen");
+    difficultyScreen.classList.add("hideScreen");
     gameScreen.style.display = "none";
 
+    // 難易度画面
+    if(screen === difficultyScreen){
+
+        difficultyScreen.style.display = "flex";
+
+        requestAnimationFrame(() => {
+
+            difficultyScreen.classList.remove("hideScreen");
+            difficultyScreen.classList.add("showScreen");
+
+        });
+
+        return;
+    }
+
+    // ゲーム画面
     screen.style.display = "flex";
+
 }
