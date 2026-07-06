@@ -560,16 +560,60 @@ button{
     height:100dvh;
 }
 
-.hidden{
-    display:none !important;
-}
 /*=========================
-  難易度画面スライド
+  画面共通
 =========================*/
+
+#startScreen,
+#difficultyScreen,
+#gameScreen{
+
+    position:fixed;
+    inset:0;
+    width:100%;
+    height:100dvh;
+
+}
+
+/*=========================
+  スタート画面
+=========================*/
+
+#startScreen{
+
+    display:flex;
+
+}
+
+/*=========================
+  難易度画面
+=========================*/
+
+#difficultyScreen{
+
+    display:flex;
+
+    transform:translateX(100%);
+
+    transition:transform .35s ease;
+
+}
+
+/* 開く */
 
 #difficultyScreen.open{
 
     transform:translateX(0);
+
+}
+
+/*=========================
+  ゲーム画面
+=========================*/
+
+#gameScreen{
+
+    display:none;
 
 }
 
