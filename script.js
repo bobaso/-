@@ -715,6 +715,8 @@ backBtn.onclick = () => {
 
         difficultyScreen.style.display = "none";
 
+        difficultyScreen.style.transform = "translateX(100%)";
+
     },350);
 
 };
@@ -732,13 +734,15 @@ function showScreen(screen){
             difficultyScreen.style.transform = "translateX(0)";
 
         });
+setTimeout(()=>{
 
-        setTimeout(()=>{
-            startScreen.style.display = "none";
-        },350);
+    startScreen.style.display = "none";
 
-        return;
-    }
+    difficultyScreen.style.transform = "translateX(0)";
+
+},350);
+
+return;
 
     // 難易度 → ゲーム
     startScreen.style.display = "none";
