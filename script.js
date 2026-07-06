@@ -706,47 +706,44 @@ hardBtn.onclick = () => {
 };
 backBtn.onclick = () => {
 
-    startScreen.style.display = "flex";
-
-    difficultyScreen.style.transition = "transform .35s ease";
-    difficultyScreen.style.transform = "translateX(100%)";
+    difficultyScreen.classList.remove("showScreen");
+    difficultyScreen.classList.add("hideScreen");
 
     setTimeout(() => {
 
         difficultyScreen.style.display = "none";
-
-        difficultyScreen.style.transform = "translateX(100%)";
+        startScreen.style.display = "flex";
 
     },350);
 
 };
 function showScreen(screen){
 
-    // スタート → 難易度（右からスライド）
+    // 全画面を非表示
+    startScreen.style.display = "none";
+    difficultyScreen.style.display = "none";
+    gameScreen.style.display = "none";
+
+    // 難易度画面だけスライド表示
     if(screen === difficultyScreen){
 
         difficultyScreen.style.display = "flex";
-        difficultyScreen.style.transform = "translateX(100%)";
 
-        requestAnimationFrame(()=>{
-
-            difficultyScreen.style.transition = "transform .35s ease";
-            difficultyScreen.style.transform = "translateX(0)";
-
+        requestAnimationFrame(() => {
+            difficultyScreen.classList.remove("hideScreen");
+            difficultyScreen.classList.add("showScreen");
         });
-setTimeout(()=>{
 
-    startScreen.style.display = "none";
+        return;
+    }
 
-    difficultyScreen.style.transform = "translateX(0)";
+    // ゲーム画面
+    if(screen === gameScreen){
+        gameScreen.style.display = "flex";
+    }
 
-},350);
-
-return;
-
-    // 難易度 → ゲーム
-    startScreen.style.display = "none";
-    difficultyScreen.style.display = "none";
-    gameScreen.style.display = "flex";
-
+    // スタート画面
+    if(screen === startScreen){
+        startScreen.style.display = "flex";
+    }
 }
