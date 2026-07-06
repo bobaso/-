@@ -662,6 +662,10 @@ singleBtn.onclick = () => {
 
         showScreen(difficultyScreen);
 
+        requestAnimationFrame(() => {
+            difficultyScreen.classList.add("open");
+        });
+
     },120);
 
 };
@@ -680,6 +684,8 @@ multiBtn.onclick = () => {
 
 };
 function startGame(){
+
+    difficultyScreen.classList.remove("open");
 
     showScreen(gameScreen);
 
@@ -702,17 +708,21 @@ hardBtn.onclick = () => {
 };
 backBtn.onclick = () => {
 
-    showScreen(startScreen);
+    difficultyScreen.classList.remove("open");
+
+    setTimeout(() => {
+
+        showScreen(startScreen);
+
+    },350);
 
 };
 function showScreen(screen){
 
-    // 一旦すべて非表示
-    startScreen.style.display = "none";
-    difficultyScreen.style.display = "none";
-    gameScreen.style.display = "none";
+    startScreen.classList.add("hidden");
+    difficultyScreen.classList.add("hidden");
+    gameScreen.classList.add("hidden");
 
-    // 指定画面だけ表示
-    screen.style.display = "flex";
+    screen.classList.remove("hidden");
 
 }
