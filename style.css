@@ -554,13 +554,14 @@ button{
 #startScreen,
 #difficultyScreen,
 #gameScreen{
-
     position:fixed;
     inset:0;
-
     width:100%;
     height:100dvh;
+}
 
+.hidden{
+    display:none !important;
 }
 /*=========================
   難易度画面スライド
@@ -571,8 +572,4 @@ button{
     transform:translateX(0);
 
 }
-.hidden{
 
-    display:none !important;
-
-}
