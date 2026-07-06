@@ -128,14 +128,18 @@ body{
     position:fixed;
     inset:0;
 
-    display:none;
-
+    display:flex;
     justify-content:center;
     align-items:center;
 
     background:#b7ecb2;
 
     z-index:10000;
+
+    transform:translateX(100%);
+    transition:transform .35s ease;
+
+    visibility:hidden;
 
 }
 
@@ -585,4 +589,19 @@ button{
 #gameScreen{
     display:none;
     flex-direction:column;
+}
+.showScreen{
+
+    visibility:visible;
+
+    transform:translateX(0);
+
+}
+
+.hideScreen{
+
+    visibility:hidden;
+
+    transform:translateX(100%);
+
 }
