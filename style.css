@@ -140,6 +140,7 @@ body{
     transition:transform .35s ease;
 
     visibility:hidden;
+    opacity:0;
 
 }
 
@@ -578,22 +579,11 @@ button{
     width:100%;
     height:100dvh;
 }
-#startScreen{
-    display:flex;
-}
 
-#difficultyScreen{
-    display:none;
-}
-
-#gameScreen{
-    display:none;
-    flex-direction:column;
-}
 .showScreen{
 
     visibility:visible;
-
+    opacity:1;
     transform:translateX(0);
 
 }
@@ -601,7 +591,7 @@ button{
 .hideScreen{
 
     visibility:hidden;
-
+    opacity:0;
     transform:translateX(100%);
 
 }
