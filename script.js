@@ -711,7 +711,7 @@ backBtn.onclick = () => {
     difficultyScreen.style.transition = "transform .35s ease";
     difficultyScreen.style.transform = "translateX(100%)";
 
-    setTimeout(()=>{
+    setTimeout(() => {
 
         difficultyScreen.style.display = "none";
 
@@ -720,7 +720,7 @@ backBtn.onclick = () => {
 };
 function showScreen(screen){
 
-    // スタート→難易度だけスライド
+    // スタート → 難易度（右からスライド）
     if(screen === difficultyScreen){
 
         difficultyScreen.style.display = "flex";
@@ -740,16 +740,10 @@ function showScreen(screen){
         return;
     }
 
-    // 通常切替
+    // 難易度 → ゲーム
     startScreen.style.display = "none";
     difficultyScreen.style.display = "none";
     gameScreen.style.display = "flex";
+
 }
-
-        return;
-    }
-
-    // ゲーム画面
-    screen.style.display = "flex";
-
 }
