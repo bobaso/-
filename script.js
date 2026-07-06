@@ -660,11 +660,7 @@ singleBtn.onclick = () => {
 
     setTimeout(() => {
 
-        showScreen(difficultyScreen);
-
-        requestAnimationFrame(() => {
-            difficultyScreen.classList.add("open");
-        });
+        difficultyScreen.classList.add("open");
 
     },120);
 
@@ -687,9 +683,13 @@ function startGame(){
 
     difficultyScreen.classList.remove("open");
 
-    showScreen(gameScreen);
+    setTimeout(() => {
 
-    initGame();
+        showScreen(gameScreen);
+
+        initGame();
+
+    },350);
 
 }
 easyBtn.onclick = () => {
@@ -719,10 +719,19 @@ backBtn.onclick = () => {
 };
 function showScreen(screen){
 
-    startScreen.classList.remove("active");
-    difficultyScreen.classList.remove("active");
-    gameScreen.classList.remove("active");
+    startScreen.style.display = "none";
+    gameScreen.style.display = "none";
 
-    screen.classList.add("active");
+    if(screen === startScreen){
+
+        startScreen.style.display = "flex";
+
+    }
+
+    if(screen === gameScreen){
+
+        gameScreen.style.display = "flex";
+
+    }
 
 }
