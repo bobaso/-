@@ -137,6 +137,9 @@ body{
 
     z-index:10000;
 
+    transform:translateX(100%);
+    transition:transform .35s ease;
+
 }
 
 #difficultyContainer{
@@ -575,5 +578,20 @@ button{
 
     width:100%;
     height:100dvh;
+
+}
+/*=========================
+  画面スライド
+=========================*/
+
+.screenSlideIn{
+
+    transform:translateX(0);
+
+}
+
+.screenSlideOut{
+
+    transform:translateX(100%);
 
 }
