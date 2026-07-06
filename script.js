@@ -719,10 +719,10 @@ backBtn.onclick = () => {
 };
 function showScreen(screen){
 
-    startScreen.classList.add("hidden");
-    difficultyScreen.classList.add("hidden");
-    gameScreen.classList.add("hidden");
+    startScreen.classList.remove("active");
+    difficultyScreen.classList.remove("active");
+    gameScreen.classList.remove("active");
 
-    screen.classList.remove("hidden");
+    screen.classList.add("active");
 
 }
