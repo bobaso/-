@@ -723,9 +723,32 @@ backBtn.onclick = () => {
     setTimeout(() => {
 
         showScreen(startScreen);
-        function returnToTitle(){
 
-    // ゲーム終了画面を閉じる
+    },350);
+
+};
+function showScreen(screen){
+
+    startScreen.style.display = "none";
+    difficultyScreen.style.display = "none";
+    gameScreen.style.display = "none";
+
+    if(screen === startScreen){
+        startScreen.style.display = "flex";
+    }
+
+    if(screen === difficultyScreen){
+        difficultyScreen.style.display = "flex";
+    }
+
+    if(screen === gameScreen){
+        gameScreen.style.display = "flex";
+    }
+
+}
+function returnToTitle(){
+
+    // 終了画面を閉じる
     gameOverPanel.classList.remove("show");
 
     // 難易度画面を閉じる
@@ -735,29 +758,7 @@ backBtn.onclick = () => {
     singleImage.classList.remove("pressed");
     multiImage.classList.remove("pressed");
 
-    // ゲーム画面を閉じる
+    // タイトル画面へ
     showScreen(startScreen);
-
-}
-
-    },350);
-
-};
-function showScreen(screen){
-
-    startScreen.style.display = "none";
-    gameScreen.style.display = "none";
-
-    if(screen === startScreen){
-
-        startScreen.style.display = "flex";
-
-    }
-
-    if(screen === gameScreen){
-
-        gameScreen.style.display = "flex";
-
-    }
 
 }
