@@ -637,6 +637,15 @@ if(restartBtn){
     });
 
 }
+if(titleBtn){
+
+    titleBtn.addEventListener("click", () => {
+
+        returnToTitle();
+
+    });
+
+}
 
 // ページを開いたときにゲーム開始
 const startScreen = document.getElementById("startScreen");
@@ -714,6 +723,22 @@ backBtn.onclick = () => {
     setTimeout(() => {
 
         showScreen(startScreen);
+        function returnToTitle(){
+
+    // ゲーム終了画面を閉じる
+    gameOverPanel.classList.remove("show");
+
+    // 難易度画面を閉じる
+    difficultyScreen.classList.remove("open");
+
+    // ボタンの押下状態を解除
+    singleImage.classList.remove("pressed");
+    multiImage.classList.remove("pressed");
+
+    // ゲーム画面を閉じる
+    showScreen(startScreen);
+
+}
 
     },350);
 
