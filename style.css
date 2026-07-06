@@ -122,10 +122,9 @@ body{
 /*=========================
   難易度選択画面
 =========================*/
-
 #difficultyScreen{
 
-    display:none;
+    display:flex;
 
     justify-content:center;
     align-items:center;
@@ -584,5 +583,10 @@ button{
 #difficultyScreen.open{
 
     transform:translateX(0);
+
+}
+.hidden{
+
+    display:none !important;
 
 }
