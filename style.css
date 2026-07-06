@@ -203,11 +203,11 @@ body{
 
     position:absolute;
 
-    width:125px;
-    height:125px;
+    width:clamp(70px,18vw,125px);
+    height:clamp(70px,18vw,125px);
 
-    left:18px;
-    bottom:18px;
+    left:clamp(10px,3vw,18px);
+    bottom:clamp(10px,3vw,18px);
 
     pointer-events:none;
 
@@ -262,11 +262,11 @@ body{
 
     position:absolute;
 
-    left:18px;
-    bottom:18px;
+    left:clamp(10px,3vw,18px);
+    bottom:clamp(10px,3vw,18px);
 
-    width:125px;
-    height:125px;
+    width:clamp(70px,18vw,125px);
+    height:clamp(70px,18vw,125px);
 
     background:none;
 
