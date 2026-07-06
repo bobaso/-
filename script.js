@@ -662,7 +662,7 @@ singleBtn.onclick = () => {
 
         showScreen(difficultyScreen);
 
-    }, 120);
+    },120);
 
 };
 multiBtn.onclick = () => {
@@ -673,9 +673,7 @@ multiBtn.onclick = () => {
 
     setTimeout(() => {
 
-        startScreen.style.display = "none";
-        gameScreen.style.display = "flex";
-
+        showScreen(gameScreen);
         initGame();
 
     },120);
@@ -686,8 +684,6 @@ function startGame(){
     showScreen(gameScreen);
 
     initGame();
-
-    console.log("難易度:", cpuLevel);
 
 }
 easyBtn.onclick = () => {
@@ -706,44 +702,17 @@ hardBtn.onclick = () => {
 };
 backBtn.onclick = () => {
 
-    difficultyScreen.classList.remove("showScreen");
-    difficultyScreen.classList.add("hideScreen");
-
-    setTimeout(() => {
-
-        difficultyScreen.style.display = "none";
-        startScreen.style.display = "flex";
-
-    },350);
+    showScreen(startScreen);
 
 };
 function showScreen(screen){
 
-    // 全画面を非表示
+    // 一旦すべて非表示
     startScreen.style.display = "none";
     difficultyScreen.style.display = "none";
     gameScreen.style.display = "none";
 
-    // 難易度画面だけスライド表示
-    if(screen === difficultyScreen){
+    // 指定画面だけ表示
+    screen.style.display = "flex";
 
-        difficultyScreen.style.display = "flex";
-
-        requestAnimationFrame(() => {
-            difficultyScreen.classList.remove("hideScreen");
-            difficultyScreen.classList.add("showScreen");
-        });
-
-        return;
-    }
-
-    // ゲーム画面
-    if(screen === gameScreen){
-        gameScreen.style.display = "flex";
-    }
-
-    // スタート画面
-    if(screen === startScreen){
-        startScreen.style.display = "flex";
-    }
 }
