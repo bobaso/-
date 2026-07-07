@@ -734,17 +734,7 @@ function showScreen(screen){
     difficultyScreen.style.display = "none";
     gameScreen.style.display = "none";
 
-    if(screen === startScreen){
-        startScreen.style.display = "flex";
-    }
-
-    if(screen === difficultyScreen){
-        difficultyScreen.style.display = "flex";
-    }
-
-    if(screen === gameScreen){
-        gameScreen.style.display = "flex";
-    }
+    screen.style.display = "flex";
 
 }
 function returnToTitle(){
