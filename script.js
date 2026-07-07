@@ -670,6 +670,7 @@ singleBtn.onclick = () => {
 
     setTimeout(() => {
 
+        showScreen(difficultyScreen);   // ←追加
         difficultyScreen.classList.add("open");
 
     },120);
@@ -753,6 +754,7 @@ function returnToTitle(){
 
     // 難易度画面を閉じる
     difficultyScreen.classList.remove("open");
+    difficultyScreen.style.display = "none";
 
     // ボタンの押下状態を解除
     singleImage.classList.remove("pressed");
