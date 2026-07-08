@@ -355,13 +355,13 @@ body{
 /* あなた */
 .leftScore{
     left:22.6%;
-    top:77.8%;
+    top:80%;
     color:#fff;
 }
 
 .rightScore{
     left:77.2%;
-    top:77.8%;
+    top:80%;
     color:#111;
 }
 
