@@ -177,17 +177,16 @@ body{
 }
 
 #easyImage{
-    top:38%;
+    top:42%;
 }
 
 #normalImage{
-    top:50%;
+    top:57%;
 }
 
 #hardImage{
-    top:62%;
+    top:72%;
 }
-
 
 /*=========================
   戻るボタン（125×125）
@@ -235,15 +234,15 @@ body{
 }
 
 #easyBtn{
-    top:38%;
+    top:42%;
 }
 
 #normalBtn{
-    top:50%;
+    top:57%;
 }
 
 #hardBtn{
-    top:62%;
+    top:72%;
 }
 
 #backBtn{
